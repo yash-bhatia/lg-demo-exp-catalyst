@@ -2,10 +2,29 @@
 
 ---
 
-- [TV & Audio](/tv-audio/)
-- [Electroménager](/electromenager/)
-- [Climatisation](/climatisation/)
-- [Informatique](/informatique/)
+- **TV & Audio**
+  - [TV & Barres de son](/tv-barres-de-son/)
+  - [Téléviseurs Lifestyle](/televiseurs-lifestyle/)
+  - [Barres de Son](/barres-de-son/)
+  - [Écouteurs Bluetooth](/ecouteurs-bluetooth/)
+  - [Enceintes XBOOM](/enceintes-xboom/)
+  - [Vidéoprojecteurs](/videoprojecteurs/)
+  - [Vidéo](/video/)
+- **Électroménager**
+  - [Réfrigérateur](/refrigerateur/)
+  - [Lavage](/lavage/)
+  - [Lave-vaisselle](/lave-vaisselle/)
+  - [Micro-ondes](/micro-ondes/)
+  - [Aspirateurs](/aspirateurs/)
+  - [Cave à Vin](/cave-a-vin/)
+  - [Styler](/styler/)
+- **Climatisation**
+  - [Climatiseurs](/climatiseurs/)
+  - [Chauffage](/chauffage/)
+- **Informatique**
+  - [Moniteurs](/moniteurs/)
+  - [PC Portables LG gram](/pc-portables/)
+  - [Accessoires](/accessoires/)
 - **Support**
   - [Enregistrer un Produit](/support/enregistrer-produit/)
   - [Manuels & Firmware](/support/manuels-firmware/)
