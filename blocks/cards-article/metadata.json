@@ -1,0 +1,39 @@
+{
+  "variantName": "cards-article",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-02-02T09:54:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.lg.com/fr/lg-experience",
+    "originPage": "LG Experience landing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "article-grid",
+    "imagePattern": "large-thumbnail"
+  },
+  "contentPattern": {
+    "structure": "image + category badge + title + optional link",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "article listing pages",
+      "blog archives",
+      "content hub grids",
+      "news sections"
+    ],
+    "notSuitableFor": [
+      "product catalogs",
+      "feature comparisons"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/content/fr/lg-experience"],
+    "reuseCount": 1,
+    "lastUsed": "2026-02-02T09:54:00.000Z"
+  }
+}

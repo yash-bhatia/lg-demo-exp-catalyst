@@ -1,0 +1,38 @@
+{
+  "variantName": "hero-article",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-02-02T09:54:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.lg.com/fr/lg-experience",
+    "originPage": "LG Experience landing page",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "featured-article",
+    "imagePattern": "large-background"
+  },
+  "contentPattern": {
+    "structure": "background image + category tag + heading",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "article landing pages",
+      "blog post features",
+      "content hub homepages"
+    ],
+    "notSuitableFor": [
+      "product pages",
+      "e-commerce landing pages"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/content/fr/lg-experience"],
+    "reuseCount": 1,
+    "lastUsed": "2026-02-02T09:54:00.000Z"
+  }
+}

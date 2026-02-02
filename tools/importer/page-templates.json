@@ -1,0 +1,28 @@
+{
+  "templates": [
+    {
+      "name": "lg-experience-landing",
+      "urls": ["https://www.lg.com/fr/lg-experience"],
+      "description": "LG Experience landing page template with featured articles, article cards grids, and product category showcase",
+      "blocks": [
+        {
+          "name": "hero-article",
+          "instances": [".featured-article", ".hero-banner", ".main-feature"]
+        },
+        {
+          "name": "cards-article",
+          "instances": [".article-grid", ".article-cards", ".content-cards"]
+        },
+        {
+          "name": "cards-product",
+          "instances": [".product-grid", ".essential-module", ".product-categories"]
+        },
+        {
+          "name": "section-grey",
+          "section": "grey",
+          "instances": [".grey-section", ".bg-grey"]
+        }
+      ]
+    }
+  ]
+}
