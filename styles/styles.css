@@ -92,6 +92,11 @@ header {
   height: var(--nav-height);
 }
 
+/* Add padding for fixed header */
+main {
+  padding-top: var(--nav-height);
+}
+
 header .header,
 footer .footer {
   visibility: hidden;
