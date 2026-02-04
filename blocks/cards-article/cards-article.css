@@ -1,27 +1,295 @@
+/* Cards Article Block - 3-column grid layout */
+
+.cards-article-container {
+  margin: 40px 0;
+}
+
+.cards-article-container .cards-article-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (width >= 900px) {
+  .cards-article-container .cards-article-wrapper {
+    padding: 0 32px;
+  }
+}
+
+/* Section title */
+.cards-article-container .default-content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.cards-article-container .default-content-wrapper h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 24px;
+}
+
+@media (width >= 900px) {
+  .cards-article-container .default-content-wrapper {
+    padding: 0 32px;
+  }
+
+  .cards-article-container .default-content-wrapper h2 {
+    margin-bottom: 32px;
+  }
+}
+
+/* Grid layout - targets direct div children (cards) */
+.cards-article {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (width >= 600px) {
+  .cards-article {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width >= 900px) {
+  .cards-article {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+}
+
+/* Individual card styling - direct child divs */
+.cards-article > div {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.cards-article > div:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Card image - first child div containing picture */
+.cards-article > div > div:first-child {
+  line-height: 0;
+  overflow: hidden;
+}
+
+.cards-article > div > div:first-child picture {
+  display: block;
+  width: 100%;
+}
+
+.cards-article > div img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+  transition: transform 0.3s ease;
+}
+
+.cards-article > div:hover img {
+  transform: scale(1.03);
+}
+
+/* Card body - second child div containing text */
+.cards-article > div > div:last-child {
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Category tag - first paragraph (with or without strong) */
+.cards-article > div > div:last-child > p:first-child {
+  margin: 0 0 14px;
+  line-height: 1;
+}
+
+/* Category tag with strong */
+.cards-article > div > div:last-child > p:first-child strong {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 5px 12px;
+  border-radius: 4px;
+  border: 1.5px solid rgb(0, 0, 102);
+  background-color: transparent;
+  color: rgb(0, 0, 102);
+}
+
+/* Category tag without strong (like Inspiration) */
+.cards-article > div > div:last-child > p:first-child:not(:has(strong)) {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 5px 12px;
+  border-radius: 4px;
+  border: 1.5px solid rgb(200, 100, 0);
+  background-color: transparent;
+  color: rgb(200, 100, 0);
+  width: fit-content;
+}
+
+/* Title - second paragraph */
+.cards-article > div > div:last-child > p:nth-child(2) {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #000;
+  margin: 0;
+  flex: 1;
+}
+
+/* Title - h2 element */
+.cards-article > div > div:last-child h2 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #000;
+  margin: 0;
+  flex: 1;
+}
+
+/* Hide button */
+.cards-article > div > div:last-child .button-container {
+  display: none;
+}
+
+/* Link styling */
+.cards-article > div > div:last-child a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cards-article > div > div:last-child a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Make entire card clickable */
+.cards-article > div {
+  cursor: pointer;
+  position: relative;
+}
+
+/* Responsive adjustments */
+@media (max-width: 599px) {
+  .cards-article > div > div:last-child {
+    padding: 16px 20px 20px;
+  }
+
+  .cards-article > div > div:last-child > p:nth-child(2),
+  .cards-article > div > div:last-child h2 {
+    font-size: 15px;
+  }
+
+  .cards-article-container .default-content-wrapper h2 {
+    font-size: 24px;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 600px) and (max-width: 899px) {
+  .cards-article {
+    gap: 20px;
+  }
+}
+
+/* Also support ul/li structure if JS transforms it */
 .cards-article > ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  grid-gap: 24px;
+  display: contents;
 }
 
 .cards-article > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
 }
 
-.cards-article .cards-article-card-body {
-  margin: 16px;
-}
-
-.cards-article .cards-article-card-image {
-  line-height: 0;
+.cards-article > ul > li:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
 }
 
 .cards-article > ul > li img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
+  border-radius: 12px 12px 0 0;
+  transition: transform 0.3s ease;
+}
+
+.cards-article > ul > li:hover img {
+  transform: scale(1.03);
+}
+
+.cards-article .cards-article-card-image {
+  line-height: 0;
+  overflow: hidden;
+}
+
+.cards-article .cards-article-card-body {
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cards-article .cards-article-card-body > p:first-child {
+  margin: 0 0 14px;
+  line-height: 1;
+}
+
+.cards-article .cards-article-card-body > p:first-child strong {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 5px 12px;
+  border-radius: 4px;
+  border: 1.5px solid rgb(0, 0, 102);
+  background-color: transparent;
+  color: rgb(0, 0, 102);
+}
+
+.cards-article .cards-article-card-body > p:nth-child(2) {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #000;
+  margin: 0;
+  flex: 1;
+}
+
+.cards-article .cards-article-card-body h2 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #000;
+  margin: 0;
+  flex: 1;
+}
+
+.cards-article .cards-article-card-body .button-container {
+  display: none;
 }
