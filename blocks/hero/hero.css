@@ -1,3 +1,5 @@
+/* LG France Hero Block Styling */
+
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -5,17 +7,16 @@
 
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  padding: 80px 24px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
 }
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
-}
-
+/* Background image layer */
 .hero picture {
   position: absolute;
   z-index: -1;
@@ -30,8 +31,142 @@
   height: 100%;
 }
 
+/* Dark overlay for better text contrast */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgb(0 0 0 / 60%) 0%, rgb(0 0 0 / 20%) 100%);
+  z-index: 0;
+}
+
+/* Content container */
+.hero > div:not(:has(picture)) {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Hero title */
+.hero h1 {
+  max-width: 600px;
+  margin: 0 0 16px;
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgb(0 0 0 / 30%);
+}
+
+/* Hero subtitle/description */
+.hero p {
+  max-width: 500px;
+  margin: 0 0 24px;
+  color: rgb(255 255 255 / 90%);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Hero CTA button */
+.hero a.button {
+  background-color: var(--link-color);
+  border-color: var(--link-color);
+  color: #fff;
+  padding: 14px 32px;
+  font-weight: 600;
+  border-radius: 0;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero a.button:hover {
+  background-color: var(--link-hover-color);
+  border-color: var(--link-hover-color);
+  transform: translateY(-2px);
+}
+
+/* Secondary button variant */
+.hero a.button.secondary {
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.hero a.button.secondary:hover {
+  background-color: #fff;
+  color: var(--text-color);
+}
+
+/* Responsive styles */
+@media (width >= 600px) {
+  .hero {
+    min-height: 450px;
+    padding: 100px 32px;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+}
+
 @media (width >= 900px) {
   .hero {
-    padding: 40px 32px;
+    min-height: 500px;
+    padding: 120px 40px;
   }
+
+  .hero h1 {
+    font-size: 48px;
+    max-width: 700px;
+  }
+
+  .hero p {
+    font-size: 20px;
+    max-width: 600px;
+  }
+}
+
+@media (width >= 1200px) {
+  .hero {
+    min-height: 560px;
+  }
+
+  .hero h1 {
+    font-size: 56px;
+  }
+}
+
+/* Hero light variant (white background) */
+.hero.light {
+  background-color: var(--light-color);
+}
+
+.hero.light::before {
+  display: none;
+}
+
+.hero.light h1 {
+  color: var(--text-color);
+  text-shadow: none;
+}
+
+.hero.light p {
+  color: var(--text-color-secondary);
+}
+
+/* Hero centered variant */
+.hero.centered {
+  align-items: center;
+  text-align: center;
+}
+
+.hero.centered h1,
+.hero.centered p {
+  margin-left: auto;
+  margin-right: auto;
 }

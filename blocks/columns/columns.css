@@ -1,10 +1,15 @@
+/* LG France Columns Block Styling */
+
 .columns > div {
   display: flex;
   flex-direction: column;
+  gap: 24px;
 }
 
 .columns img {
   width: 100%;
+  height: auto;
+  border-radius: 0;
 }
 
 .columns > div > div {
@@ -19,15 +24,80 @@
   display: block;
 }
 
+/* Column content styling */
+.columns > div > div h2 {
+  margin-top: 0;
+  font-size: var(--heading-font-size-l);
+  color: var(--text-color);
+}
+
+.columns > div > div h3 {
+  margin-top: 0;
+  font-size: var(--heading-font-size-m);
+  color: var(--text-color);
+}
+
+.columns > div > div p {
+  color: var(--text-color-secondary);
+  line-height: 1.6;
+}
+
+/* Tablet breakpoint */
+@media (width >= 600px) {
+  .columns > div {
+    gap: 32px;
+  }
+}
+
+/* Desktop breakpoint */
 @media (width >= 900px) {
   .columns > div {
     align-items: center;
-    flex-direction: unset;
-    gap: 24px;
+    flex-direction: row;
+    gap: 48px;
   }
 
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+
+  .columns > div > div h2 {
+    font-size: var(--heading-font-size-xl);
+  }
+}
+
+/* Columns with more than 2 items */
+.columns-3-cols > div,
+.columns-4-cols > div {
+  flex-wrap: wrap;
+}
+
+@media (width >= 900px) {
+  .columns-3-cols > div > div {
+    flex: 0 0 calc(33.333% - 32px);
+  }
+
+  .columns-4-cols > div > div {
+    flex: 0 0 calc(25% - 36px);
+  }
+}
+
+/* Highlight variant */
+.columns.highlight {
+  background-color: var(--light-color);
+  padding: var(--spacing-xl) 0;
+  margin: var(--spacing-xl) 0;
+}
+
+.columns.highlight > div {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (width >= 900px) {
+  .columns.highlight > div {
+    padding: 0 40px;
   }
 }
