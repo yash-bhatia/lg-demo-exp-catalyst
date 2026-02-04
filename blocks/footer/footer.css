@@ -1,10 +1,10 @@
-/* LG France Footer Styling */
+/* LG France Footer Styling - Exact Match */
 
 footer {
-  background-color: #f4f0eb;
-  font-family: 'LG Smart', 'Helvetica Neue', helvetica, arial, sans-serif;
-  font-size: 13px;
-  color: #333;
+  background-color: #eeeeee;
+  font-family: 'LG Smart UI', 'Segoe UI', 'Microsoft Sans Serif', sans-serif;
+  font-size: 16px;
+  color: #4a4946;
   margin-top: 64px;
 }
 
@@ -49,13 +49,15 @@ footer .footer .default-content-wrapper {
 }
 
 /* Category headings */
-footer .footer h2 {
-  font-size: 14px;
-  font-weight: 700;
+footer .footer h2,
+footer .footer strong {
+  font-size: 20px;
+  font-weight: 400;
   color: #000;
   margin: 0 0 16px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #ddd;
+  padding-bottom: 0;
+  border-bottom: none;
+  display: block;
 }
 
 /* Category links */
@@ -70,10 +72,11 @@ footer .footer ul li {
 }
 
 footer .footer ul li a {
-  color: #666;
-  text-decoration: none;
+  color: #000;
+  text-decoration: underline;
   transition: color 0.2s ease;
   line-height: 1.5;
+  font-size: 16px;
 }
 
 footer .footer ul li a:hover {
@@ -99,38 +102,50 @@ footer .footer .default-content-wrapper > p a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  background-color: #333;
-  border-radius: 50%;
-  transition: background-color 0.2s ease;
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  border-radius: 100%;
+  transition: opacity 0.2s ease;
 }
 
 footer .footer .default-content-wrapper > p a:hover {
-  background-color: #a50034;
+  opacity: 0.7;
 }
 
 footer .footer .default-content-wrapper > p img {
-  width: 18px;
-  height: 18px;
-  filter: brightness(0) invert(1);
+  width: 32px;
+  height: 32px;
 }
 
 /* Legal links row */
 footer .footer .default-content-wrapper > ul:last-of-type {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 24px;
+  gap: 8px 16px;
   margin-bottom: 16px;
+  border-top: 1px solid #cbc8c2;
+  padding-top: 24px;
 }
 
 footer .footer .default-content-wrapper > ul:last-of-type li {
   margin: 0;
 }
 
+footer .footer .default-content-wrapper > ul:last-of-type li::after {
+  content: '|';
+  margin-left: 16px;
+  color: #cbc8c2;
+}
+
+footer .footer .default-content-wrapper > ul:last-of-type li:last-child::after {
+  content: none;
+}
+
 footer .footer .default-content-wrapper > ul:last-of-type li a {
-  font-size: 12px;
-  color: #666;
+  font-size: 14px;
+  color: #4a4946;
+  text-decoration: none;
 }
 
 footer .footer .default-content-wrapper > ul:last-of-type li a:hover {
@@ -140,8 +155,8 @@ footer .footer .default-content-wrapper > ul:last-of-type li a:hover {
 
 /* Copyright text */
 footer .footer .default-content-wrapper > p:last-child {
-  font-size: 12px;
-  color: #666;
+  font-size: 14px;
+  color: #4a4946;
   margin-top: 16px;
 }
 
