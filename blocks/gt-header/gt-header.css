@@ -1,0 +1,75 @@
+.gt-header {
+  display: block;
+  padding: 40px 0 0;
+  margin: 0 0 20px;
+  font-family: "LG Smart UI", "Segoe UI", "Microsoft Sans Serif", sans-serif;
+  font-size: 20px;
+  text-align: center;
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gt-header .gt-header-logo {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.gt-header .gt-header-logo-link {
+  display: inline-block;
+}
+
+.gt-header .gt-header-logo img {
+  display: block;
+  max-width: 257px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.gt-header .gt-header-navigation {
+  margin-top: 20px;
+}
+
+.gt-header .gt-header-nav {
+  display: block;
+}
+
+.gt-header .gt-header-nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.gt-header .gt-header-nav li {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.gt-header .gt-header-nav a {
+  display: inline-block;
+  padding: 5px 8px;
+  font-size: 14px;
+  font-family: "LG Smart UI", "Segoe UI", "Microsoft Sans Serif", sans-serif;
+  font-weight: 400;
+  color: #000;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.gt-header .gt-header-nav a:hover {
+  color: #a50034;
+  text-decoration: none;
+}
+
+/* Remove default block wrapper styles */
+.gt-header > div {
+  max-width: none;
+  padding: 0;
+}
