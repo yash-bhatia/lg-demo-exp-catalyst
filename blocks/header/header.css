@@ -20,7 +20,7 @@ header nav {
   align-items: center;
   gap: 0 16px;
   margin: auto;
-  max-width: 1400px;
+  max-width: 1440px;
   height: var(--nav-height, 56px);
   padding: 0 16px;
   font-family: 'LG Smart UI', 'Helvetica Neue', Arial, sans-serif;
@@ -42,11 +42,12 @@ header nav[aria-expanded='true'] {
 
   header nav {
     display: flex;
+    flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     gap: 0;
-    max-width: 1400px;
-    padding: 0 24px;
+    max-width: 1440px;
+    padding: 0 32px;
     height: 56px;
   }
 
@@ -69,6 +70,7 @@ header nav a:any-link {
 
 header nav a:hover {
   color: #a50034;
+  text-decoration: none;
 }
 
 /* hamburger */
@@ -159,7 +161,20 @@ header .nav-brand {
   flex-shrink: 0;
   font-size: 0;
   line-height: 1;
-  margin-right: 40px;
+  margin-right: 32px;
+}
+
+header nav .nav-brand,
+header nav .nav-brand > .default-content-wrapper,
+header nav .nav-brand > div {
+  display: flex;
+  align-items: center;
+}
+
+header nav .nav-brand p {
+  margin: 0;
+  display: flex;
+  align-items: center;
 }
 
 header nav .nav-brand a {
@@ -167,18 +182,23 @@ header nav .nav-brand a {
   align-items: center;
 }
 
+header nav .nav-brand picture {
+  display: flex;
+  align-items: center;
+}
+
 header nav .nav-brand img {
-  width: 48px;
+  width: 50px;
   height: auto;
 }
 
 @media (width >= 900px) {
   header nav .nav-brand {
-    margin-right: 48px;
+    margin-right: 40px;
   }
 
   header nav .nav-brand img {
-    width: 52px;
+    width: 55px;
   }
 }
 
@@ -198,6 +218,7 @@ header nav[aria-expanded='true'] .nav-sections {
   border-top: 1px solid #e4e4e4;
 }
 
+/* Mobile nav sections list */
 header nav .nav-sections ul {
   list-style: none;
   padding-left: 0;
@@ -206,29 +227,21 @@ header nav .nav-sections ul {
 }
 
 header nav .nav-sections ul > li {
-  font-weight: 500;
+  font-weight: 400;
   padding: 12px 0;
   border-bottom: 1px solid #e4e4e4;
 }
 
-header nav .nav-sections ul > li > ul {
-  margin-top: 8px;
-  border: 0;
-}
-
-header nav .nav-sections ul > li > ul > li {
-  font-weight: 400;
-  padding: 8px 0;
-  padding-left: 16px;
-  border-bottom: 0;
-}
-
 @media (width >= 900px) {
   header nav .nav-sections {
-    display: flex;
+    display: block;
     visibility: visible;
     white-space: nowrap;
-    align-items: center;
+    flex: 1 1 auto;
+  }
+
+  header nav .nav-sections .default-content-wrapper {
+    display: block;
   }
 
   header nav[aria-expanded='true'] .nav-sections {
@@ -237,6 +250,42 @@ header nav .nav-sections ul > li > ul > li {
     border-top: 0;
   }
 
+  /* Main navigation list - HORIZONTAL */
+  header nav .nav-sections ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    align-items: center;
+  }
+
+  header nav .nav-sections ul > li {
+    padding: 0;
+    border-bottom: 0;
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  header nav .nav-sections ul > li > a,
+  header nav .nav-sections ul > li:not(:has(a)) {
+    display: block;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 400;
+    color: #333;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+  }
+
+  header nav .nav-sections ul > li > a:hover,
+  header nav .nav-sections ul > li:not(:has(a)):hover {
+    color: #a50034;
+  }
+
+  /* Dropdown styling */
   header nav .nav-sections .nav-drop {
     position: relative;
     padding-right: 16px;
@@ -264,42 +313,11 @@ header nav .nav-sections ul > li > ul > li {
     transform: rotate(315deg);
   }
 
-  header nav .nav-sections ul {
-    display: flex;
-    gap: 0;
-    margin: 0;
-    align-items: center;
-  }
-
-  header nav .nav-sections ul > li {
-    padding: 0;
-    border-bottom: 0;
-  }
-
-  header nav .nav-sections ul > li > a {
-    display: block;
-    padding: 8px 16px;
-    font-size: 13px;
-    font-weight: 400;
-    color: #333;
-    letter-spacing: 0.2px;
-  }
-
-  header nav .nav-sections ul > li > a:hover {
-    color: #a50034;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li {
-    flex: 0 1 auto;
-    position: relative;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li > ul {
+  header nav .nav-sections ul > li > ul {
     display: none;
-    position: relative;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
+  header nav .nav-sections ul > li[aria-expanded='true'] > ul {
     display: block;
     position: absolute;
     left: 0;
@@ -314,23 +332,11 @@ header nav .nav-sections ul > li > ul > li {
     z-index: 100;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 24px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid #fff;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
+  header nav .nav-sections ul > li > ul > li {
     padding: 8px 20px;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li > ul > li:hover {
+  header nav .nav-sections ul > li > ul > li:hover {
     background-color: #f7f7f7;
   }
 }
@@ -339,36 +345,47 @@ header nav .nav-sections ul > li > ul > li {
 header nav .nav-tools {
   grid-area: tools;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   margin-left: auto;
+}
+
+header nav .nav-tools .default-content-wrapper {
+  display: block;
 }
 
 header nav .nav-tools p {
   margin: 0;
 }
 
+/* Tools list - HORIZONTAL */
 header nav .nav-tools ul {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 4px;
+  gap: 12px;
 }
 
-header nav .nav-tools li {
+header nav .nav-tools ul > li {
   display: flex;
   align-items: center;
+  flex: 0 0 auto;
 }
 
-/* Professionnels button - outlined style */
-header nav .nav-tools li:first-child a,
-header nav .nav-tools a[href*="professionnel"] {
+/* Professionnels button - first item, outlined pill style */
+header nav .nav-tools ul > li:first-child {
+  margin-right: 4px;
+}
+
+header nav .nav-tools ul > li:first-child > a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 6px 16px;
+  padding: 7px 18px;
   border: 1px solid #333;
   border-radius: 20px;
   font-size: 12px;
@@ -379,25 +396,26 @@ header nav .nav-tools a[href*="professionnel"] {
   transition: all 0.2s ease;
 }
 
-header nav .nav-tools li:first-child a:hover,
-header nav .nav-tools a[href*="professionnel"]:hover {
+header nav .nav-tools ul > li:first-child > a:hover {
   background-color: #333;
   color: #fff;
   text-decoration: none;
 }
 
-/* Icon links */
-header nav .nav-tools a {
+/* Icon items - search, user, cart */
+header nav .nav-tools ul > li:not(:first-child) {
+  padding: 0;
+}
+
+header nav .nav-tools ul > li:not(:first-child) a {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px;
+  padding: 6px;
   color: #333;
-  font-size: 12px;
-  white-space: nowrap;
 }
 
-header nav .nav-tools a:hover {
+header nav .nav-tools ul > li:not(:first-child) a:hover {
   color: #a50034;
 }
 
@@ -406,57 +424,82 @@ header nav .nav-tools .icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
 }
 
-header nav .nav-tools .icon svg {
-  width: 20px;
-  height: 20px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.5;
+header nav .nav-tools .icon svg,
+header nav .nav-tools .icon img {
+  width: 22px;
+  height: 22px;
 }
 
-header nav .nav-tools .icon-search svg {
-  fill: currentColor;
-  stroke: none;
+/* Make icon text items invisible (only show icon) */
+header nav .nav-tools ul > li:not(:first-child) {
+  font-size: 0;
+}
+
+header nav .nav-tools ul > li:not(:first-child) .icon {
+  font-size: 14px;
 }
 
 @media (width >= 900px) {
+  header nav .nav-tools {
+    gap: 12px;
+  }
+
+  header nav .nav-tools ul {
+    gap: 14px;
+  }
+
+  header nav .nav-tools ul > li:first-child > a {
+    font-size: 13px;
+    padding: 8px 20px;
+  }
+
+  header nav .nav-tools .icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  header nav .nav-tools .icon svg,
+  header nav .nav-tools .icon img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Responsive adjustments for smaller desktop screens */
+@media (width < 1200px) and (width >= 900px) {
+  header nav .nav-sections ul > li > a,
+  header nav .nav-sections ul > li:not(:has(a)) {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  header nav .nav-tools ul > li:first-child > a {
+    padding: 6px 14px;
+    font-size: 11px;
+  }
+
   header nav .nav-tools {
     gap: 8px;
   }
 
   header nav .nav-tools ul {
-    gap: 6px;
-  }
-
-  header nav .nav-tools li:first-child a,
-  header nav .nav-tools a[href*="professionnel"] {
-    font-size: 13px;
-    padding: 8px 20px;
-  }
-
-  header nav .nav-tools a {
-    font-size: 14px;
-  }
-
-  header nav .nav-tools .icon {
-    width: 22px;
-    height: 22px;
-  }
-
-  header nav .nav-tools .icon svg {
-    width: 22px;
-    height: 22px;
+    gap: 10px;
   }
 }
 
-/* Smaller screens - hide professionnels text, show only icons */
-@media (width < 1100px) and (width >= 900px) {
-  header nav .nav-sections ul > li > a {
-    padding: 8px 12px;
-    font-size: 12px;
+/* Even smaller screens */
+@media (width < 1050px) and (width >= 900px) {
+  header nav .nav-sections ul > li > a,
+  header nav .nav-sections ul > li:not(:has(a)) {
+    padding: 8px 8px;
+    font-size: 11px;
+  }
+
+  header nav .nav-brand {
+    margin-right: 24px;
   }
 }
