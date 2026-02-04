@@ -1,13 +1,13 @@
-/* LG France Header Styling - Exact Match */
+/* LG France Header - Exact Match Styling */
 
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: #eeeeee;
+  background-color: #fff;
   width: 100%;
   z-index: 100;
   position: fixed;
   top: 0;
-  border-bottom: 3px solid #a50034;
+  border-bottom: 1px solid #e0e0e0;
   box-shadow: none;
 }
 
@@ -15,20 +15,20 @@ header nav {
   box-sizing: border-box;
   display: grid;
   grid-template:
-    'hamburger brand tools' var(--nav-height, 64px)
+    'hamburger brand tools' var(--nav-height, 56px)
     'sections sections sections' 1fr / auto 1fr auto;
   align-items: center;
   gap: 0 16px;
   margin: auto;
-  max-width: 1440px;
-  height: var(--nav-height, 64px);
+  max-width: 1400px;
+  height: var(--nav-height, 56px);
   padding: 0 16px;
-  font-family: 'LG Smart UI', 'Segoe UI', 'Microsoft Sans Serif', sans-serif;
+  font-family: 'LG Smart UI', 'Helvetica Neue', Arial, sans-serif;
 }
 
 header nav[aria-expanded='true'] {
   grid-template:
-    'hamburger brand tools' var(--nav-height, 64px)
+    'hamburger brand tools' var(--nav-height, 56px)
     'sections sections sections' 1fr / auto 1fr auto;
   overflow-y: auto;
   min-height: 100dvh;
@@ -42,11 +42,12 @@ header nav[aria-expanded='true'] {
 
   header nav {
     display: flex;
-    justify-content: space-between;
-    gap: 0 32px;
-    max-width: 1440px;
-    padding: 0 40px;
-    height: 64px;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0;
+    max-width: 1400px;
+    padding: 0 24px;
+    height: 56px;
   }
 
   header nav[aria-expanded='true'] {
@@ -61,14 +62,13 @@ header nav p {
 }
 
 header nav a:any-link {
-  color: #000;
+  color: #333;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 header nav a:hover {
   color: #a50034;
-  text-decoration: underline;
 }
 
 /* hamburger */
@@ -156,23 +156,29 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
 /* brand - LG Logo */
 header .nav-brand {
   grid-area: brand;
-  flex-basis: auto;
+  flex-shrink: 0;
   font-size: 0;
   line-height: 1;
+  margin-right: 40px;
 }
 
 header nav .nav-brand a {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
 }
 
 header nav .nav-brand img {
-  width: 50px;
+  width: 48px;
   height: auto;
 }
 
 @media (width >= 900px) {
+  header nav .nav-brand {
+    margin-right: 48px;
+  }
+
   header nav .nav-brand img {
-    width: 54px;
+    width: 52px;
   }
 }
 
@@ -196,7 +202,7 @@ header nav .nav-sections ul {
   list-style: none;
   padding-left: 0;
   margin: 0;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 header nav .nav-sections ul > li {
@@ -260,13 +266,27 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav .nav-sections ul {
     display: flex;
-    gap: 28px;
+    gap: 0;
     margin: 0;
+    align-items: center;
   }
 
   header nav .nav-sections ul > li {
     padding: 0;
     border-bottom: 0;
+  }
+
+  header nav .nav-sections ul > li > a {
+    display: block;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 400;
+    color: #333;
+    letter-spacing: 0.2px;
+  }
+
+  header nav .nav-sections ul > li > a:hover {
+    color: #a50034;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li {
@@ -282,9 +302,10 @@ header nav .nav-sections ul > li > ul > li {
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
     display: block;
     position: absolute;
-    left: -16px;
+    left: 0;
     width: 220px;
-    top: 150%;
+    top: 100%;
+    margin-top: 8px;
     padding: 16px 0;
     background-color: #fff;
     white-space: initial;
@@ -314,12 +335,17 @@ header nav .nav-sections ul > li > ul > li {
   }
 }
 
-/* tools - search, login, cart */
+/* tools - Professionnels button, search, login, cart */
 header nav .nav-tools {
   grid-area: tools;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  margin-left: auto;
+}
+
+header nav .nav-tools p {
+  margin: 0;
 }
 
 header nav .nav-tools ul {
@@ -328,7 +354,7 @@ header nav .nav-tools ul {
   margin: 0;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
 }
 
 header nav .nav-tools li {
@@ -336,6 +362,31 @@ header nav .nav-tools li {
   align-items: center;
 }
 
+/* Professionnels button - outlined style */
+header nav .nav-tools li:first-child a,
+header nav .nav-tools a[href*="professionnel"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+  border: 1px solid #333;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #333;
+  background-color: transparent;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+header nav .nav-tools li:first-child a:hover,
+header nav .nav-tools a[href*="professionnel"]:hover {
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Icon links */
 header nav .nav-tools a {
   display: flex;
   align-items: center;
@@ -350,16 +401,62 @@ header nav .nav-tools a:hover {
   color: #a50034;
 }
 
+/* Icon styling */
+header nav .nav-tools .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+header nav .nav-tools .icon svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+header nav .nav-tools .icon-search svg {
+  fill: currentColor;
+  stroke: none;
+}
+
 @media (width >= 900px) {
   header nav .nav-tools {
-    gap: 16px;
+    gap: 8px;
   }
 
   header nav .nav-tools ul {
-    gap: 16px;
+    gap: 6px;
+  }
+
+  header nav .nav-tools li:first-child a,
+  header nav .nav-tools a[href*="professionnel"] {
+    font-size: 13px;
+    padding: 8px 20px;
   }
 
   header nav .nav-tools a {
     font-size: 14px;
+  }
+
+  header nav .nav-tools .icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  header nav .nav-tools .icon svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* Smaller screens - hide professionnels text, show only icons */
+@media (width < 1100px) and (width >= 900px) {
+  header nav .nav-sections ul > li > a {
+    padding: 8px 12px;
+    font-size: 12px;
   }
 }
