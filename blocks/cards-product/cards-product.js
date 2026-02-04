@@ -113,6 +113,31 @@ function createProductList(productRows) {
         div.className = 'cards-product-card-image';
       } else {
         div.className = 'cards-product-card-body';
+
+        // Separate text from links - wrap text in span and links in div
+        const paragraphs = div.querySelectorAll('p');
+        paragraphs.forEach((p) => {
+          const link = p.querySelector('a');
+          if (link) {
+            // Get text content before the link
+            const textContent = p.textContent.replace(link.textContent, '').trim();
+            if (textContent) {
+              // Create new structure: title span + button wrapper
+              const titleSpan = document.createElement('span');
+              titleSpan.className = 'cards-product-title';
+              titleSpan.textContent = textContent;
+
+              const buttonWrapper = document.createElement('span');
+              buttonWrapper.className = 'cards-product-button';
+              buttonWrapper.appendChild(link.cloneNode(true));
+
+              // Replace paragraph content
+              p.innerHTML = '';
+              p.appendChild(titleSpan);
+              p.appendChild(buttonWrapper);
+            }
+          }
+        });
       }
     }
 
