@@ -17,4 +17,10 @@ export default async function decorate(block) {
   while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
 
   block.append(footer);
+
+  // Make all links point to current page
+  block.querySelectorAll('a').forEach((link) => {
+    link.href = '#';
+    link.addEventListener('click', (e) => e.preventDefault());
+  });
 }

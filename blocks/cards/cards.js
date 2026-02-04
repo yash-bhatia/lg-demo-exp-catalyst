@@ -13,5 +13,12 @@ export default function decorate(block) {
     ul.append(li);
   });
   ul.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
+
+  // Make all links point to current page
+  ul.querySelectorAll('a').forEach((link) => {
+    link.href = '#';
+    link.addEventListener('click', (e) => e.preventDefault());
+  });
+
   block.replaceChildren(ul);
 }

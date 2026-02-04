@@ -8,6 +8,8 @@ export default function decorate(block) {
     const link = logoRow.querySelector('a');
     if (link) {
       link.classList.add('gt-header-logo-link');
+      link.href = '#';
+      link.addEventListener('click', (e) => e.preventDefault());
     }
   }
 
@@ -23,7 +25,10 @@ export default function decorate(block) {
     links.forEach((link) => {
       const li = document.createElement('li');
       li.classList.add('menu-item');
-      li.appendChild(link.cloneNode(true));
+      const clonedLink = link.cloneNode(true);
+      clonedLink.href = '#';
+      clonedLink.addEventListener('click', (e) => e.preventDefault());
+      li.appendChild(clonedLink);
       ul.appendChild(li);
     });
 

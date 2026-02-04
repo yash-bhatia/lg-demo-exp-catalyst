@@ -153,5 +153,11 @@ function createProductList(productRows) {
     }
   });
 
+  // Make all links point to current page
+  ul.querySelectorAll('a').forEach((link) => {
+    link.href = '#';
+    link.addEventListener('click', (e) => e.preventDefault());
+  });
+
   return ul;
 }

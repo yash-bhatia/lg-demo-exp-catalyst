@@ -163,4 +163,10 @@ export default async function decorate(block) {
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
+
+  // Make all links point to current page
+  block.querySelectorAll('a').forEach((link) => {
+    link.href = '#';
+    link.addEventListener('click', (e) => e.preventDefault());
+  });
 }

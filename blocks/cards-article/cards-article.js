@@ -40,6 +40,13 @@ export default function decorate(block) {
     moveInstrumentation(img, optimizedPic.querySelector('img'));
     img.closest('picture').replaceWith(optimizedPic);
   });
+
+  // Make all links point to current page
+  ul.querySelectorAll('a').forEach((link) => {
+    link.href = '#';
+    link.addEventListener('click', (e) => e.preventDefault());
+  });
+
   block.textContent = '';
   block.append(ul);
 }
