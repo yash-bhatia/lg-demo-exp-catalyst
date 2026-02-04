@@ -1,4 +1,4 @@
-/* Cards Product Block - LG Les essentiels style */
+/* Cards Product Block - LG Les essentiels style with tabs */
 
 /* Section heading styling */
 .cards-product-container h2 {
@@ -18,7 +18,65 @@
   margin: 0 0 40px;
 }
 
-.cards-product > ul {
+/* Tab Navigation */
+.cards-product-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 50px;
+  border-bottom: none;
+}
+
+.cards-product-tab {
+  background: none;
+  border: none;
+  font-size: 22px;
+  font-weight: 300;
+  color: #333;
+  padding: 10px 0;
+  cursor: pointer;
+  position: relative;
+  transition: font-weight 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cards-product-tab::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background-color: #a50034;
+  transition: width 0.2s ease;
+}
+
+.cards-product-tab:hover {
+  font-weight: 600;
+}
+
+.cards-product-tab.active {
+  font-weight: 700;
+}
+
+.cards-product-tab.active::after {
+  width: 60px;
+}
+
+/* Tab Content */
+.cards-product-content {
+  display: none;
+}
+
+.cards-product-content.active {
+  display: block;
+}
+
+/* Product Grid */
+.cards-product > ul,
+.cards-product-content > ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -27,7 +85,9 @@
   gap: 16px;
 }
 
-.cards-product > ul > li {
+/* Card Base Styles */
+.cards-product > ul > li,
+.cards-product-content > ul > li {
   background: linear-gradient(0deg, rgb(155, 130, 134) 40%, rgb(217, 210, 211) 100%);
   border-radius: 30px;
   border: none;
@@ -40,7 +100,23 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.cards-product > ul > li:hover {
+/* Purple variant (DIVERTISSEMENT) - default */
+.cards-product-content[data-variant="purple"] > ul > li {
+  background: linear-gradient(0deg, rgb(155, 130, 134) 40%, rgb(217, 210, 211) 100%);
+}
+
+/* Grey variant (ELECTROMÉNAGER) */
+.cards-product-content[data-variant="grey"] > ul > li {
+  background: linear-gradient(rgb(183, 183, 183) -30%, rgb(47, 47, 47) 90%);
+}
+
+/* Blue variant (PRODUITS PC) */
+.cards-product-content[data-variant="blue"] > ul > li {
+  background: linear-gradient(rgb(101, 114, 134) -30%, rgb(22, 29, 35) 70%);
+}
+
+.cards-product > ul > li:hover,
+.cards-product-content > ul > li:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
@@ -56,7 +132,8 @@
   width: 100%;
 }
 
-.cards-product > ul > li img {
+.cards-product > ul > li img,
+.cards-product-content > ul > li img {
   width: auto;
   max-width: 100%;
   max-height: 280px;
@@ -74,19 +151,18 @@
 }
 
 /* Product title - styled as white text */
-.cards-product .cards-product-card-body strong {
+.cards-product .cards-product-card-body strong,
+.cards-product .cards-product-card-body p {
   display: block;
   font-size: 20px;
   font-weight: 400;
   color: #fff;
   text-align: center;
-  margin-bottom: 20px;
+  margin: 0 0 20px;
 }
 
-/* Hide default paragraph styling in cards */
 .cards-product .cards-product-card-body p {
   margin: 0;
-  color: #fff;
 }
 
 /* If there's a link in the card, style it as a button */
@@ -111,33 +187,47 @@
 
 /* Tablet - 2 columns */
 @media (max-width: 1100px) {
-  .cards-product > ul {
+  .cards-product > ul,
+  .cards-product-content > ul {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .cards-product > ul > li {
+  .cards-product > ul > li,
+  .cards-product-content > ul > li {
     min-height: 350px;
+  }
+
+  .cards-product-tabs {
+    gap: 30px;
+  }
+
+  .cards-product-tab {
+    font-size: 18px;
   }
 }
 
 /* Mobile - 1 column */
 @media (max-width: 599px) {
-  .cards-product > ul {
+  .cards-product > ul,
+  .cards-product-content > ul {
     grid-template-columns: 1fr;
     gap: 12px;
   }
 
-  .cards-product > ul > li {
+  .cards-product > ul > li,
+  .cards-product-content > ul > li {
     padding: 24px 16px;
     min-height: 300px;
     border-radius: 20px;
   }
 
-  .cards-product > ul > li img {
+  .cards-product > ul > li img,
+  .cards-product-content > ul > li img {
     max-height: 200px;
   }
 
-  .cards-product .cards-product-card-body strong {
+  .cards-product .cards-product-card-body strong,
+  .cards-product .cards-product-card-body p {
     font-size: 18px;
   }
 
@@ -152,5 +242,19 @@
 
   .cards-product-container > div > p {
     font-size: 16px;
+  }
+
+  .cards-product-tabs {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .cards-product-tab {
+    font-size: 14px;
+    padding: 8px 0;
+  }
+
+  .cards-product-tab.active::after {
+    width: 40px;
   }
 }
