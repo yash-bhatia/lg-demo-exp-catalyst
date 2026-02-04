@@ -1,10 +1,4 @@
 /* Hero Article Block - Image left, content right */
-.hero-article-container .hero-article-wrapper {
-  max-width: 780px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
 .hero-article {
   display: flex;
   flex-direction: row;
@@ -20,15 +14,18 @@
 .hero-article > div:first-child {
   flex: 0 0 42%;
   max-width: 42%;
+  display: flex;
+  align-items: stretch;
 }
 
 .hero-article > div:first-child > div {
-  height: 100%;
+  width: 100%;
+  display: flex;
 }
 
 .hero-article picture {
-  display: block;
-  height: 100%;
+  display: flex;
+  width: 100%;
 }
 
 .hero-article img {
@@ -109,76 +106,88 @@
   text-decoration: none;
 }
 
-/* Hero Featured Sidebar - when inside grid layout */
-.hero-featured-sidebar .hero-article {
+/* Hero Grid Section - when inside .hero-grid */
+.section.hero-grid .hero-article {
   max-width: 100%;
   margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.section.hero-grid .hero-article > div:first-child {
+  flex: 0 0 45%;
+  max-width: 45%;
+  display: flex;
+  overflow: hidden;
+}
+
+.section.hero-grid .hero-article > div:first-child > div {
+  width: 100%;
   height: 100%;
-  min-height: 200px;
 }
 
-.hero-featured-sidebar .hero-article > div:first-child {
-  flex: 0 0 40%;
-  max-width: 40%;
+.section.hero-grid .hero-article > div:first-child picture {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
-.hero-featured-sidebar .hero-article > div:last-child {
-  padding: 16px 20px;
+.section.hero-grid .hero-article img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
-.hero-featured-sidebar .hero-article h2 {
+.section.hero-grid .hero-article > div:last-child {
+  flex: 1;
+  padding: 18px 22px;
+}
+
+.section.hero-grid .hero-article h2 {
   font-size: 14px;
   margin-bottom: 12px;
 }
 
-.hero-featured-sidebar .hero-article > div:last-child p:first-child {
+.section.hero-grid .hero-article > div:last-child p:first-child {
   font-size: 9px;
   padding: 4px 10px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
-.hero-featured-sidebar .hero-article .button-container a.button {
+.section.hero-grid .hero-article .button-container a.button {
   font-size: 11px;
-  padding: 8px 18px;
+  padding: 9px 20px;
 }
 
-/* Desktop adjustments for grid */
+/* Desktop adjustments */
 @media (width >= 900px) {
-  .hero-featured-sidebar .hero-article {
-    min-height: 210px;
-  }
-
-  .section.hero-article-container .hero-article-wrapper {
-    padding: 0 32px;
-    max-width: 1200px;
-  }
-
-  .section.hero-article-container .hero-article {
-    max-width: 100%;
-    margin: 0;
+  .section.hero-grid .hero-article {
+    min-height: 220px;
   }
 }
 
 /* Tablet responsive */
 @media (max-width: 1100px) and (min-width: 900px) {
-  .hero-featured-sidebar .hero-article > div:last-child {
-    padding: 14px 16px;
+  .section.hero-grid .hero-article > div:last-child {
+    padding: 14px 18px;
   }
 
-  .hero-featured-sidebar .hero-article h2 {
+  .section.hero-grid .hero-article h2 {
     font-size: 13px;
     margin-bottom: 10px;
   }
 
-  .hero-featured-sidebar .hero-article > div:last-child p:first-child {
+  .section.hero-grid .hero-article > div:last-child p:first-child {
     font-size: 8px;
     padding: 3px 8px;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 
-  .hero-featured-sidebar .hero-article .button-container a.button {
+  .section.hero-grid .hero-article .button-container a.button {
     font-size: 10px;
-    padding: 6px 14px;
+    padding: 7px 16px;
   }
 }
 
@@ -202,8 +211,41 @@
     padding: 20px;
   }
 
-  .hero-featured-sidebar .hero-article > div:first-child {
-    flex: 0 0 100%;
-    max-width: 100%;
+  /* Keep hero-grid articles horizontal on mobile */
+  .section.hero-grid .hero-article {
+    flex-direction: row;
+    min-height: 140px;
+  }
+
+  .section.hero-grid .hero-article > div:first-child {
+    flex: 0 0 40%;
+    max-width: 40%;
+  }
+
+  .section.hero-grid .hero-article img {
+    border-radius: 12px 0 0 12px;
+    object-fit: cover;
+  }
+
+  .section.hero-grid .hero-article > div:last-child {
+    padding: 14px 16px;
+  }
+
+  .section.hero-grid .hero-article h2 {
+    font-size: 13px;
+  }
+}
+
+/* Standalone hero-article wrapper */
+.hero-article-container:not(.hero-grid) .hero-article-wrapper {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (width >= 900px) {
+  .hero-article-container:not(.hero-grid) .hero-article-wrapper {
+    padding: 0 32px;
+    max-width: 1200px;
   }
 }
