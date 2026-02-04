@@ -2,7 +2,7 @@
 
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: #fff;
+  background-color: #f0ece4;
   width: 100%;
   z-index: 100;
   position: fixed;
@@ -32,7 +32,7 @@ header nav[aria-expanded='true'] {
     'sections sections sections' 1fr / auto 1fr auto;
   overflow-y: auto;
   min-height: 100dvh;
-  background-color: #fff;
+  background-color: #f0ece4;
 }
 
 @media (width >= 900px) {
