@@ -4,44 +4,113 @@
 }
 
 .hero-article {
-  position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 780px;
+  margin: 0 auto 20px;
 }
 
-.hero-article h1,
-.hero-article h2,
-.hero-article h3,
-.hero-article h4,
-.hero-article h5,
-.hero-article h6,
-.hero-article p {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
+/* Image container - left side */
+.hero-article > div:first-child {
+  flex: 0 0 50%;
+  max-width: 50%;
 }
 
-.hero-article.no-image * {
-  color: var(--text-color);
-}
-
-.hero-article picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
-}
-
-.hero-article img {
-  object-fit: cover;
-  width: 100%;
+.hero-article > div:first-child > div {
   height: 100%;
 }
 
-@media (width >= 900px) {
+.hero-article picture {
+  display: block;
+  height: 100%;
+}
+
+.hero-article img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px 0 0 10px;
+}
+
+/* Content container - right side */
+.hero-article > div:last-child {
+  flex: 0 0 50%;
+  max-width: 50%;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.hero-article > div:last-child > div {
+  width: 100%;
+}
+
+/* Category tag styling */
+.hero-article p:first-child {
+  font-size: 11.5px;
+  font-weight: 400;
+  color: rgb(0, 0, 102);
+  text-transform: uppercase;
+  margin: 0 0 20px;
+  letter-spacing: 0.5px;
+}
+
+/* Title styling */
+.hero-article h2 {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #000;
+  margin: 0 0 15px;
+}
+
+.hero-article h2 a {
+  color: #000;
+  text-decoration: none;
+}
+
+.hero-article h2 a:hover {
+  text-decoration: underline;
+}
+
+/* Link styling */
+.hero-article p:last-child {
+  margin: 0;
+}
+
+.hero-article p:last-child a {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgb(0, 0, 102);
+  text-decoration: none;
+}
+
+.hero-article p:last-child a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
   .hero-article {
-    padding: 40px 32px;
+    flex-direction: column;
+  }
+
+  .hero-article > div:first-child,
+  .hero-article > div:last-child {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .hero-article img {
+    border-radius: 10px 10px 0 0;
+  }
+
+  .hero-article > div:last-child {
+    padding: 15px;
   }
 }

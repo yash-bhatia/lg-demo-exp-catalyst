@@ -1,0 +1,100 @@
+/* Image Container Block - Full-width hero with text overlay */
+.image-container {
+  position: relative;
+  display: block;
+  max-width: 780px;
+  margin: 0 auto 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.image-container > div:first-child {
+  position: relative;
+  width: 100%;
+}
+
+.image-container picture {
+  display: block;
+  width: 100%;
+}
+
+.image-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Text overlay container */
+.image-container > div:last-child {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 24px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
+  border-radius: 0 0 10px 10px;
+}
+
+.image-container > div:last-child > div {
+  max-width: 100%;
+}
+
+/* Category tag - white pill style */
+.image-container p:first-child {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgb(0, 0, 102);
+  background-color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+  letter-spacing: 0.5px;
+}
+
+/* Title styling - white text on dark overlay */
+.image-container h2 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+  margin: 0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.image-container h2 a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.image-container h2 a:hover {
+  text-decoration: underline;
+}
+
+/* Hide the link paragraph if present */
+.image-container p:last-child:not(:first-child) {
+  display: none;
+}
+
+/* Make the entire block clickable via the image link */
+.image-container a {
+  display: block;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  .image-container > div:last-child {
+    padding: 15px;
+  }
+
+  .image-container h2 {
+    font-size: 18px;
+  }
+
+  .image-container p:first-child {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+}
