@@ -1,27 +1,156 @@
+/* Cards Product Block - LG Les essentiels style */
+
+/* Section heading styling */
+.cards-product-container h2 {
+  font-size: 40px;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  margin: 0 0 20px;
+}
+
+/* Section subtitle - p after h2 */
+.cards-product-container > div > p {
+  font-size: 20px;
+  font-weight: 400;
+  color: #333;
+  text-align: center;
+  margin: 0 0 40px;
+}
+
 .cards-product > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  grid-gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 
 .cards-product > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+  background: linear-gradient(0deg, rgb(155, 130, 134) 40%, rgb(217, 210, 211) 100%);
+  border-radius: 30px;
+  border: none;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+  min-height: 400px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.cards-product .cards-product-card-body {
-  margin: 16px;
+.cards-product > ul > li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
+/* Image container */
 .cards-product .cards-product-card-image {
   line-height: 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
 }
 
 .cards-product > ul > li img {
+  width: auto;
+  max-width: 100%;
+  max-height: 280px;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+/* Text/body container */
+.cards-product .cards-product-card-body {
+  margin: 0;
+  padding: 20px 0;
+  text-align: center;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+}
+
+/* Product title - styled as white text */
+.cards-product .cards-product-card-body strong {
+  display: block;
+  font-size: 20px;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Hide default paragraph styling in cards */
+.cards-product .cards-product-card-body p {
+  margin: 0;
+  color: #fff;
+}
+
+/* If there's a link in the card, style it as a button */
+.cards-product .cards-product-card-body a {
+  display: inline-block;
+  background-color: #fff;
+  color: #000;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 60px;
+  border-radius: 26px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  margin-top: 10px;
+}
+
+.cards-product .cards-product-card-body a:hover {
+  background-color: #f5f5f5;
+  transform: scale(1.02);
+  text-decoration: none;
+}
+
+/* Tablet - 2 columns */
+@media (max-width: 1100px) {
+  .cards-product > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cards-product > ul > li {
+    min-height: 350px;
+  }
+}
+
+/* Mobile - 1 column */
+@media (max-width: 599px) {
+  .cards-product > ul {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .cards-product > ul > li {
+    padding: 24px 16px;
+    min-height: 300px;
+    border-radius: 20px;
+  }
+
+  .cards-product > ul > li img {
+    max-height: 200px;
+  }
+
+  .cards-product .cards-product-card-body strong {
+    font-size: 18px;
+  }
+
+  .cards-product .cards-product-card-body a {
+    padding: 10px 40px;
+    font-size: 14px;
+  }
+
+  .cards-product-container h2 {
+    font-size: 28px;
+  }
+
+  .cards-product-container > div > p {
+    font-size: 16px;
+  }
 }
