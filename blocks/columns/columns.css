@@ -1,4 +1,4 @@
-/* LG France Columns Block Styling */
+/* LG France Columns Block - Product Spotlight */
 
 .columns > div {
   display: flex;
@@ -10,6 +10,7 @@
   width: 100%;
   height: auto;
   border-radius: 0;
+  display: block;
 }
 
 .columns > div > div {
@@ -24,7 +25,7 @@
   display: block;
 }
 
-/* Column content styling */
+/* Column text content styling */
 .columns > div > div h2 {
   margin-top: 0;
   font-size: var(--heading-font-size-l);
@@ -33,13 +34,29 @@
 
 .columns > div > div h3 {
   margin-top: 0;
-  font-size: var(--heading-font-size-m);
+  font-size: var(--heading-font-size-l);
+  font-weight: 600;
   color: var(--text-color);
 }
 
 .columns > div > div p {
-  color: var(--text-color-secondary);
-  line-height: 1.6;
+  color: var(--text-color);
+  font-size: var(--body-font-size-l, 20px);
+  line-height: 1.4;
+}
+
+.columns > div > div p a {
+  color: var(--text-color);
+  text-decoration: underline;
+}
+
+.columns > div > div p a:hover {
+  color: var(--link-hover-color);
+}
+
+/* "Acheter maintenant" CTA link style */
+.columns > div > div p strong a {
+  font-weight: 700;
 }
 
 /* Tablet breakpoint */
@@ -64,6 +81,10 @@
 
   .columns > div > div h2 {
     font-size: var(--heading-font-size-xl);
+  }
+
+  .columns > div > div p {
+    font-size: var(--body-font-size-l, 20px);
   }
 }
 

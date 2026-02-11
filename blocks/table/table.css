@@ -1,3 +1,5 @@
+/* Table Block - LG France Design */
+
 .table.block {
   width: 100%;
   overflow-x: auto;
@@ -6,7 +8,10 @@
 .table.block table {
   width: 100%;
   max-width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 20px;
+  overflow: hidden;
   font-size: var(--body-font-size-xs);
 }
 
@@ -18,32 +23,66 @@
 
 @media (width >= 900px) {
   .table.block table {
-    font-size: var(--body-font-size-m);
+    font-size: var(--body-font-size-s);
   }
 }
 
+/* Header row - black background, white text */
 .table.block table thead tr {
-  border-top: 2px solid;
-  border-bottom: 2px solid;
+  background-color: #000;
+  color: #fff;
+  border: none;
 }
 
-.table.block table tbody tr {
-  border-bottom: 1px solid;
-}
-
-.table.block table th {
+.table.block table thead th {
   font-weight: 700;
+  padding: 20px 8px;
+  text-align: left;
+  border: none;
+  color: #fff;
+}
+
+.table.block table thead th p {
+  color: #fff;
+}
+
+.table.block table thead th a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Data rows */
+.table.block table tbody tr {
+  border-bottom: 1px solid var(--border-color, #d9d9d9);
+}
+
+.table.block table tbody tr:last-child {
+  border-bottom: none;
 }
 
 .table.block table th,
 .table.block table td {
-  padding: 0.5em;
+  padding: 20px 8px;
   text-align: left;
+  vertical-align: top;
+}
+
+@media (width >= 900px) {
+  .table.block table th,
+  .table.block table td {
+    padding: 30px 8px;
+  }
+}
+
+/* First column - feature names bold */
+.table.block table tbody td:first-child {
+  font-weight: 600;
 }
 
 .table table th p,
 .table table td p {
   margin: 0;
+  color: inherit;
 }
 
 .table table td p + p {
@@ -52,16 +91,16 @@
 
 /* no header variant */
 .table.block.no-header table tbody tr {
-  border-top: 1px solid;
+  border-top: 1px solid var(--border-color, #d9d9d9);
 }
 
 /* striped variant */
 .table.block.striped tbody tr:nth-child(odd) {
-  background-color: var(--overlay-background-color);
+  background-color: var(--grey-background, #f4f4f4);
 }
 
 /* bordered variant */
 .table.block.bordered table th,
 .table.block.bordered table td {
-  border: 1px solid;
+  border: 1px solid var(--border-color, #d9d9d9);
 }

@@ -21,23 +21,29 @@
   --link-hover-color: #8a002c;
   --grey-background: #f4f4f4;
   --category-color: #006;
+  --border-color: #d9d9d9;
 
   /* fonts - LG Experience uses Open Sans */
   --body-font-family: 'Open Sans', open-sans-fallback, sans-serif;
   --heading-font-family: 'Open Sans', open-sans-fallback, sans-serif;
 
   /* body sizes */
+  --body-font-size-l: 20px;
   --body-font-size-m: 18px;
   --body-font-size-s: 16px;
   --body-font-size-xs: 14px;
 
-  /* heading sizes */
-  --heading-font-size-xxl: 48px;
+  /* heading sizes - extracted from lg.com */
+  --heading-font-size-xxl: 42px;
   --heading-font-size-xl: 40px;
   --heading-font-size-l: 32px;
   --heading-font-size-m: 25px;
   --heading-font-size-s: 20px;
   --heading-font-size-xs: 18px;
+
+  /* line heights */
+  --heading-line-height: 1.15;
+  --body-line-height: 1.45;
 
   /* nav height */
   --nav-height: 56px;
@@ -48,6 +54,9 @@
   --spacing-m: 24px;
   --spacing-l: 40px;
   --spacing-xl: 64px;
+
+  /* transitions */
+  --transition-base: all 0.2s ease;
 }
 
 /* fallback fonts */
@@ -59,18 +68,7 @@
 
 @media (width >= 900px) {
   :root {
-    /* body sizes - desktop */
-    --body-font-size-m: 16px;
-    --body-font-size-s: 14px;
-    --body-font-size-xs: 12px;
-
-    /* heading sizes - desktop */
-    --heading-font-size-xxl: 48px;
-    --heading-font-size-xl: 40px;
-    --heading-font-size-l: 32px;
-    --heading-font-size-m: 25px;
-    --heading-font-size-s: 20px;
-    --heading-font-size-xs: 18px;
+    --heading-font-size-xxl: 42px;
   }
 }
 
@@ -81,7 +79,7 @@ body {
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
-  line-height: 1.5;
+  line-height: var(--body-line-height);
 }
 
 body.appear {
@@ -117,14 +115,14 @@ h6 {
   margin-bottom: 0.25em;
   font-family: var(--heading-font-family);
   font-weight: 600;
-  line-height: 1.15;
+  line-height: var(--heading-line-height);
   scroll-margin: 40px;
   color: var(--text-color);
 }
 
-h1 { font-size: var(--heading-font-size-xxl); }
-h2 { font-size: var(--heading-font-size-xl); color: #333; }
-h3 { font-size: var(--heading-font-size-m); font-weight: 700; }
+h1 { font-size: var(--heading-font-size-xxl); font-weight: 700; }
+h2 { font-size: var(--heading-font-size-xl); }
+h3 { font-size: var(--heading-font-size-l); }
 h4 { font-size: var(--heading-font-size-s); }
 h5 { font-size: var(--heading-font-size-s); }
 h6 { font-size: var(--heading-font-size-xs); }
@@ -135,8 +133,8 @@ ol,
 ul,
 pre,
 blockquote {
-  margin-top: 0.8em;
-  margin-bottom: 0.25em;
+  margin-top: 0;
+  margin-bottom: 1em;
 }
 
 code,
@@ -168,10 +166,17 @@ a:any-link {
   color: var(--link-color);
   text-decoration: none;
   overflow-wrap: break-word;
+  transition: color 0.2s ease;
 }
 
 a:hover {
   color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* Article body links should be underlined */
+main p a:any-link,
+main li a:any-link {
   text-decoration: underline;
 }
 
@@ -190,7 +195,7 @@ button {
   font-weight: 600;
   line-height: 1.25;
   text-align: center;
-  text-decoration: none;
+  text-decoration: none !important;
   background-color: var(--link-color);
   color: var(--background-color);
   cursor: pointer;
@@ -294,19 +299,21 @@ main .section.dark a:any-link {
   color: var(--background-color);
 }
 
-/* Category tags - LG style */
-.category-tag,
-p strong:first-child {
-  color: var(--category-color);
-  font-size: var(--body-font-size-s);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+/* Article body text - uses default black color from body */
+main p {
+  color: var(--text-color);
+  line-height: var(--body-line-height);
 }
 
-/* Secondary text color */
-p {
-  color: var(--text-color-secondary);
+/* Lists - proper indentation and styling */
+main ul,
+main ol {
+  padding-left: 1.5em;
+}
+
+main li {
+  margin-bottom: 4px;
+  line-height: var(--body-line-height);
 }
 
 /* Hero Grid Section - image-container + hero-articles in same section */
