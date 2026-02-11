@@ -1,38 +1,62 @@
-/* LG France Design - Open Sans Font Family */
-/* stylelint-disable max-line-length */
+/* LG Mobility Design - LG Smart Font Family */
+/* Self-hosted from LG CDN */
 
-/* Import Open Sans from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
-
-/* Fallback font-face definitions for Open Sans */
+/* LG Smart - Light (300) */
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'LG Smart';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('https://www.lg.com/lg5-common-gp/webfonts/LG_Smart_Light.woff2') format('woff2'),
+       url('https://www.lg.com/lg5-common-gp/webfonts/LG_Smart_Light.woff') format('woff');
+}
+
+/* LG Smart - Regular (400) */
+@font-face {
+  font-family: 'LG Smart';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Open Sans Regular'), local('OpenSans-Regular');
+  src: url('https://www.lg.com/lg5-common-gp/webfonts/LG_Smart_Regular.woff2') format('woff2'),
+       url('https://www.lg.com/lg5-common-gp/webfonts/LG_Smart_Regular.woff') format('woff');
 }
 
+/* LG Smart - Regular Italic (400) */
 @font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 500;
+  font-family: 'LG Smart';
+  font-style: italic;
+  font-weight: 400;
   font-display: swap;
-  src: local('Open Sans Medium'), local('OpenSans-Medium');
+  src: url('https://www.lg.com/lg5-common-gp/webfonts/LG_Smart_Regular_Italic.woff2') format('woff2'),
+       url('https://www.lg.com/lg5-common-gp/webfonts/LG_Smart_Regular_Italic.woff') format('woff');
 }
 
+/* LG Smart - SemiBold (600) */
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'LG Smart';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: local('Open Sans SemiBold'), local('OpenSans-SemiBold');
+  src: url('https://www.lg.com/lg5-common-gp/webfonts/LG_Smart_SemiBold.woff2') format('woff2'),
+       url('https://www.lg.com/lg5-common-gp/webfonts/LG_Smart_SemiBold.woff') format('woff');
 }
 
+/* LG Smart - Bold (700) */
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'LG Smart';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: local('Open Sans Bold'), local('OpenSans-Bold');
+  src: url('https://www.lg.com/lg5-common-gp/webfonts/LG_Smart_Bold.woff2') format('woff2'),
+       url('https://www.lg.com/lg5-common-gp/webfonts/LG_Smart_Bold.woff') format('woff');
+}
+
+/* LG Smart - Bold Italic (700) */
+@font-face {
+  font-family: 'LG Smart';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://www.lg.com/lg5-common-gp/webfonts/LG_Smart_Bold_Italic.woff2') format('woff2'),
+       url('https://www.lg.com/lg5-common-gp/webfonts/LG_Smart_Bold_Italic.woff') format('woff');
 }

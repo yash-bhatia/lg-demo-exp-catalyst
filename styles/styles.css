@@ -10,65 +10,98 @@
  * governing permissions and limitations under the License.
  */
 
+/* ==========================================
+   LG Mobility CES Event Design System
+   Extracted from: lg.com/global/mobility
+   ========================================== */
+
 :root {
-  /* colors - LG Experience */
-  --background-color: #f0ece4;
-  --light-color: #f0ece4;
+  /* Colors - LG Mobility */
+  --background-color: #fff;
+  --light-color: #f8f8f8;
   --dark-color: #333;
   --text-color: #000;
+  --text-color-primary: #212529;
   --text-color-secondary: #6b6b6b;
+  --text-color-tertiary: #767676;
   --link-color: #a50034;
   --link-hover-color: #8a002c;
-  --grey-background: #f4f4f4;
-  --category-color: #006;
-  --border-color: #d9d9d9;
+  --grey-background: #f8f8f8;
+  --border-color: #eee;
+  --footer-bg: #666;
+  --footer-dark-bg: #333;
 
-  /* fonts - LG Experience uses Open Sans */
-  --body-font-family: 'Open Sans', open-sans-fallback, sans-serif;
-  --heading-font-family: 'Open Sans', open-sans-fallback, sans-serif;
+  /* Fonts - LG Smart (proprietary, loaded from LG CDN) */
+  --body-font-family: 'LG Smart', lg-smart-fallback, 'Segoe UI', sans-serif;
+  --heading-font-family: 'LG Smart', lg-smart-fallback, 'Segoe UI', sans-serif;
 
-  /* body sizes */
+  /* Body sizes */
   --body-font-size-l: 20px;
-  --body-font-size-m: 18px;
-  --body-font-size-s: 16px;
-  --body-font-size-xs: 14px;
+  --body-font-size-m: 16px;
+  --body-font-size-s: 14px;
+  --body-font-size-xs: 12px;
 
-  /* heading sizes - extracted from lg.com */
-  --heading-font-size-xxl: 42px;
+  /* Heading sizes - extracted from CES 2026 page */
+  --heading-font-size-xxl: 40px;
   --heading-font-size-xl: 40px;
   --heading-font-size-l: 32px;
-  --heading-font-size-m: 25px;
+  --heading-font-size-m: 24px;
   --heading-font-size-s: 20px;
-  --heading-font-size-xs: 18px;
+  --heading-font-size-xs: 16px;
 
-  /* line heights */
-  --heading-line-height: 1.15;
-  --body-line-height: 1.45;
+  /* Line heights */
+  --heading-line-height: 1.2;
+  --body-line-height: 1.5;
 
-  /* nav height */
+  /* Nav height */
   --nav-height: 56px;
 
-  /* spacing */
+  /* Spacing */
   --spacing-xs: 8px;
   --spacing-s: 16px;
   --spacing-m: 24px;
   --spacing-l: 40px;
   --spacing-xl: 64px;
+  --spacing-xxl: 80px;
 
-  /* transitions */
-  --transition-base: all 0.2s ease;
+  /* Layout */
+  --content-max-width: 1384px;
+  --section-padding-x: 30px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-base: 0.2s ease;
+  --transition-slow: 0.3s ease;
+
+  /* Buttons */
+  --button-border-radius: 3px;
+  --button-padding: 11px 23px;
+  --button-font-size: 14px;
+  --button-font-weight: 700;
+  --button-text-transform: uppercase;
+  --button-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-/* fallback fonts */
+/* Fallback font for LG Smart */
 @font-face {
-  font-family: open-sans-fallback;
-  size-adjust: 105%;
-  src: local('Arial');
+  font-family: lg-smart-fallback;
+  size-adjust: 100%;
+  src: local('Segoe UI'), local('Arial');
 }
 
 @media (width >= 900px) {
   :root {
-    --heading-font-size-xxl: 42px;
+    --heading-font-size-xxl: 48px;
+    --heading-font-size-xl: 40px;
+    --heading-font-size-l: 32px;
+    --section-padding-x: 52px;
+  }
+}
+
+@media (width >= 1200px) {
+  :root {
+    --section-padding-x: 52px;
   }
 }
 
@@ -76,7 +109,7 @@ body {
   display: none;
   margin: 0;
   background-color: var(--background-color);
-  color: var(--text-color);
+  color: var(--text-color-primary);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
   line-height: var(--body-line-height);
@@ -90,7 +123,6 @@ header {
   height: var(--nav-height);
 }
 
-/* Add padding for fixed header */
 main {
   padding-top: var(--nav-height);
 }
@@ -105,6 +137,7 @@ footer .footer[data-block-status="loaded"] {
   visibility: visible;
 }
 
+/* Typography */
 h1,
 h2,
 h3,
@@ -120,12 +153,33 @@ h6 {
   color: var(--text-color);
 }
 
-h1 { font-size: var(--heading-font-size-xxl); font-weight: 700; }
-h2 { font-size: var(--heading-font-size-xl); }
-h3 { font-size: var(--heading-font-size-l); }
-h4 { font-size: var(--heading-font-size-s); }
-h5 { font-size: var(--heading-font-size-s); }
-h6 { font-size: var(--heading-font-size-xs); }
+h1 {
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: var(--heading-font-size-xl);
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: var(--heading-font-size-m);
+  line-height: 1.33;
+}
+
+h4 {
+  font-size: var(--heading-font-size-s);
+}
+
+h5 {
+  font-size: var(--heading-font-size-s);
+}
+
+h6 {
+  font-size: var(--heading-font-size-xs);
+}
 
 p,
 dl,
@@ -161,12 +215,12 @@ button {
   font: inherit;
 }
 
-/* links */
+/* Links */
 a:any-link {
   color: var(--link-color);
   text-decoration: none;
   overflow-wrap: break-word;
-  transition: color 0.2s ease;
+  transition: color var(--transition-fast);
 }
 
 a:hover {
@@ -174,35 +228,37 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Article body links should be underlined */
+/* Body text links - underlined for readability */
 main p a:any-link,
 main li a:any-link {
   text-decoration: underline;
 }
 
-/* buttons - LG style */
+/* Buttons - LG Mobility style */
 a.button:any-link,
 button {
   box-sizing: border-box;
   display: inline-block;
   max-width: 100%;
   margin: 12px 0;
-  border: 2px solid var(--link-color);
-  border-radius: 0;
-  padding: 12px 24px;
+  border: 1px solid var(--link-color);
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
   font-family: var(--body-font-family);
   font-style: normal;
-  font-weight: 600;
-  line-height: 1.25;
+  font-weight: var(--button-font-weight);
+  font-size: var(--button-font-size);
+  line-height: 1.15;
   text-align: center;
   text-decoration: none !important;
+  text-transform: var(--button-text-transform);
   background-color: var(--link-color);
-  color: var(--background-color);
+  color: #fff;
   cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  transition: background-color 0.2s, border-color 0.2s;
+  transition: var(--button-transition);
 }
 
 a.button:hover,
@@ -211,22 +267,40 @@ button:hover,
 button:focus {
   background-color: var(--link-hover-color);
   border-color: var(--link-hover-color);
+  color: #fff;
   cursor: pointer;
+}
+
+a.button:focus,
+button:focus {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
 }
 
 button:disabled,
 button:disabled:hover {
-  background-color: var(--light-color);
+  background-color: var(--border-color);
+  border-color: var(--border-color);
+  color: var(--text-color-secondary);
   cursor: unset;
 }
 
+/* Secondary button - outline style */
 a.button.secondary,
 button.secondary {
-  background-color: unset;
-  border: 2px solid currentcolor;
+  background-color: transparent;
+  border: 1px solid currentcolor;
   color: var(--text-color);
 }
 
+a.button.secondary:hover,
+button.secondary:hover {
+  background-color: var(--text-color);
+  border-color: var(--text-color);
+  color: #fff;
+}
+
+/* Images */
 main img {
   max-width: 100%;
   width: auto;
@@ -244,15 +318,15 @@ main img {
   width: 100%;
 }
 
-/* sections */
+/* Sections */
 main > .section {
   margin: 40px 0;
 }
 
 main > .section > div {
-  max-width: 1200px;
+  max-width: var(--content-max-width);
   margin: auto;
-  padding: 0 24px;
+  padding: 0 var(--section-padding-x);
 }
 
 main > .section:first-of-type {
@@ -261,16 +335,16 @@ main > .section:first-of-type {
 
 @media (width >= 900px) {
   main > .section > div {
-    padding: 0 32px;
+    padding: 0 var(--section-padding-x);
   }
 }
 
-/* section metadata */
+/* Section metadata variants */
 main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
-  padding: 40px 0;
+  padding: var(--spacing-xl) 0;
 }
 
 main .section.grey {
@@ -281,7 +355,7 @@ main .section.grey {
 
 main .section.dark {
   background-color: var(--dark-color);
-  color: var(--background-color);
+  color: #fff;
   margin: 0;
   padding: var(--spacing-xl) 0;
 }
@@ -292,20 +366,30 @@ main .section.dark h3,
 main .section.dark h4,
 main .section.dark h5,
 main .section.dark h6 {
-  color: var(--background-color);
+  color: #fff;
 }
 
 main .section.dark a:any-link {
-  color: var(--background-color);
+  color: #fff;
 }
 
-/* Article body text - uses default black color from body */
+main .section.dark a:hover {
+  color: #ddd;
+}
+
+/* Article body text */
 main p {
-  color: var(--text-color);
+  color: var(--text-color-primary);
   line-height: var(--body-line-height);
 }
 
-/* Lists - proper indentation and styling */
+/* Secondary body text / descriptions */
+main .section p + p,
+main .section .body-copy {
+  color: var(--text-color-secondary);
+}
+
+/* Lists */
 main ul,
 main ol {
   padding-left: 1.5em;
@@ -314,116 +398,4 @@ main ol {
 main li {
   margin-bottom: 4px;
   line-height: var(--body-line-height);
-}
-
-/* Hero Grid Section - image-container + hero-articles in same section */
-/* Structure: .section.hero-grid > .image-container-wrapper + .hero-article-wrapper + .hero-article-wrapper */
-
-.section.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-  max-width: 1200px;
-  margin: 20px auto !important;
-  padding: 0 24px !important;
-}
-
-@media (width >= 900px) {
-  .section.hero-grid {
-    grid-template-columns: 1.4fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 24px;
-    padding: 0 32px !important;
-    align-items: stretch;
-  }
-}
-
-/* Image container - spans both rows on left */
-.section.hero-grid > .image-container-wrapper {
-  padding: 0;
-  max-width: 100%;
-}
-
-@media (width >= 900px) {
-  .section.hero-grid > .image-container-wrapper {
-    grid-column: 1;
-    grid-row: 1 / 3;
-  }
-}
-
-.section.hero-grid .image-container {
-  max-width: 100%;
-  margin: 0;
-  height: 100%;
-  min-height: 350px;
-}
-
-@media (width >= 900px) {
-  .section.hero-grid .image-container {
-    min-height: 480px;
-  }
-}
-
-/* Hero article wrappers - stack on right */
-.section.hero-grid > .hero-article-wrapper {
-  padding: 0;
-  max-width: 100%;
-}
-
-@media (width >= 900px) {
-  .section.hero-grid > .hero-article-wrapper {
-    grid-column: 2;
-  }
-
-  .section.hero-grid > .hero-article-wrapper:nth-of-type(2) {
-    grid-row: 1;
-  }
-
-  .section.hero-grid > .hero-article-wrapper:nth-of-type(3) {
-    grid-row: 2;
-  }
-}
-
-.section.hero-grid .hero-article {
-  max-width: 100%;
-  margin: 0;
-}
-
-@media (width >= 900px) {
-  .section.hero-grid .hero-article {
-    min-height: 200px;
-  }
-}
-
-/* Standalone section styling */
-.section.image-container-container:not(.hero-grid) {
-  margin: 20px 0;
-}
-
-.section.image-container-container:not(.hero-grid) .image-container-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-@media (width >= 900px) {
-  .section.image-container-container:not(.hero-grid) .image-container-wrapper {
-    padding: 0 32px;
-  }
-}
-
-.section.hero-article-container:not(.hero-grid) {
-  margin: 20px 0;
-}
-
-.section.hero-article-container:not(.hero-grid) .hero-article-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-@media (width >= 900px) {
-  .section.hero-article-container:not(.hero-grid) .hero-article-wrapper {
-    padding: 0 32px;
-  }
 }

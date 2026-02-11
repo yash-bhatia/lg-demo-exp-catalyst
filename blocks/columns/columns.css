@@ -1,4 +1,4 @@
-/* LG France Columns Block - Product Spotlight */
+/* LG Mobility Columns Block */
 
 .columns > div {
   display: flex;
@@ -34,29 +34,48 @@
 
 .columns > div > div h3 {
   margin-top: 0;
-  font-size: var(--heading-font-size-l);
+  font-size: var(--heading-font-size-m);
   font-weight: 600;
+  line-height: 1.33;
   color: var(--text-color);
 }
 
 .columns > div > div p {
-  color: var(--text-color);
-  font-size: var(--body-font-size-l, 20px);
-  line-height: 1.4;
+  color: var(--text-color-primary);
+  font-size: var(--body-font-size-m);
+  line-height: 1.5;
+}
+
+/* Secondary text / descriptions */
+.columns > div > div p + p {
+  color: var(--text-color-secondary);
+}
+
+.columns > div > div strong {
+  font-size: var(--heading-font-size-m);
+  font-weight: 600;
+  line-height: 1.33;
+  display: block;
+  margin-bottom: 12px;
+  color: var(--text-color-primary);
 }
 
 .columns > div > div p a {
-  color: var(--text-color);
-  text-decoration: underline;
+  color: var(--link-color);
+  text-decoration: none;
 }
 
 .columns > div > div p a:hover {
   color: var(--link-hover-color);
+  text-decoration: underline;
 }
 
-/* "Acheter maintenant" CTA link style */
-.columns > div > div p strong a {
-  font-weight: 700;
+/* CTA links styled as buttons */
+.columns > div > div a.button {
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  text-transform: var(--button-text-transform);
+  border-radius: var(--button-border-radius);
 }
 
 /* Tablet breakpoint */
@@ -69,9 +88,9 @@
 /* Desktop breakpoint */
 @media (width >= 900px) {
   .columns > div {
-    align-items: center;
+    align-items: flex-start;
     flex-direction: row;
-    gap: 48px;
+    gap: 24px;
   }
 
   .columns > div > div {
@@ -81,10 +100,6 @@
 
   .columns > div > div h2 {
     font-size: var(--heading-font-size-xl);
-  }
-
-  .columns > div > div p {
-    font-size: var(--body-font-size-l, 20px);
   }
 }
 
@@ -96,29 +111,29 @@
 
 @media (width >= 900px) {
   .columns-3-cols > div > div {
-    flex: 0 0 calc(33.333% - 32px);
+    flex: 0 0 calc(33.333% - 16px);
   }
 
   .columns-4-cols > div > div {
-    flex: 0 0 calc(25% - 36px);
+    flex: 0 0 calc(25% - 18px);
   }
 }
 
-/* Highlight variant */
-.columns.highlight {
-  background-color: var(--light-color);
-  padding: var(--spacing-xl) 0;
-  margin: var(--spacing-xl) 0;
+/* Connect section variant - image + heading columns */
+.columns > div > div:has(a img) {
+  text-align: center;
 }
 
-.columns.highlight > div {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
+.columns > div > div a:has(img) {
+  display: block;
+  text-decoration: none;
 }
 
-@media (width >= 900px) {
-  .columns.highlight > div {
-    padding: 0 40px;
-  }
+.columns > div > div a:has(img) img {
+  margin: 0 auto 12px;
+}
+
+.columns > div > div a:has(img) + strong {
+  font-size: var(--heading-font-size-s);
+  text-align: center;
 }

@@ -1,4 +1,4 @@
-/* LG France Hero Block Styling */
+/* LG Mobility Hero Block */
 
 .hero-container .hero-wrapper {
   max-width: unset;
@@ -31,23 +31,7 @@
   height: 100%;
 }
 
-/* LG Experience branding logo - override hero background treatment */
-.hero picture:has(img[alt="LG Experience"]) {
-  position: relative;
-  z-index: 2;
-  inset: auto;
-}
-
-.hero img[alt="LG Experience"] {
-  width: auto;
-  max-width: 258px;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto 16px;
-}
-
-/* Dark overlay for better text contrast */
+/* Dark overlay for text contrast */
 .hero::before {
   content: '';
   position: absolute;
@@ -60,9 +44,10 @@
 .hero > div:not(:has(picture)) {
   position: relative;
   z-index: 1;
-  max-width: 1200px;
+  max-width: var(--content-max-width);
   width: 100%;
   margin: 0 auto;
+  padding: 0 var(--section-padding-x);
 }
 
 /* Hero title */
@@ -70,10 +55,9 @@
   max-width: 600px;
   margin: 0 0 16px;
   color: #fff;
-  font-size: 32px;
-  font-weight: 700;
+  font-size: var(--heading-font-size-l);
+  font-weight: 600;
   line-height: 1.2;
-  text-shadow: 0 2px 4px rgb(0 0 0 / 30%);
 }
 
 /* Hero subtitle/description */
@@ -81,8 +65,8 @@
   max-width: 500px;
   margin: 0 0 24px;
   color: rgb(255 255 255 / 90%);
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: var(--body-font-size-m);
+  line-height: 1.5;
 }
 
 /* Hero CTA button */
@@ -90,22 +74,23 @@
   background-color: var(--link-color);
   border-color: var(--link-color);
   color: #fff;
-  padding: 14px 32px;
-  font-weight: 600;
-  border-radius: 0;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  padding: var(--button-padding);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  text-transform: var(--button-text-transform);
+  border-radius: var(--button-border-radius);
+  transition: var(--button-transition);
 }
 
 .hero a.button:hover {
   background-color: var(--link-hover-color);
   border-color: var(--link-hover-color);
-  transform: translateY(-2px);
 }
 
-/* Secondary button variant */
+/* Secondary button variant - outline white */
 .hero a.button.secondary {
   background-color: transparent;
-  border: 2px solid #fff;
+  border: 1px solid #fff;
   color: #fff;
 }
 
@@ -122,11 +107,7 @@
   }
 
   .hero h1 {
-    font-size: 40px;
-  }
-
-  .hero p {
-    font-size: 18px;
+    font-size: var(--heading-font-size-xl);
   }
 }
 
@@ -137,12 +118,12 @@
   }
 
   .hero h1 {
-    font-size: 48px;
+    font-size: var(--heading-font-size-xxl);
     max-width: 700px;
   }
 
   .hero p {
-    font-size: 20px;
+    font-size: var(--body-font-size-l);
     max-width: 600px;
   }
 }
@@ -150,10 +131,6 @@
 @media (width >= 1200px) {
   .hero {
     min-height: 560px;
-  }
-
-  .hero h1 {
-    font-size: 56px;
   }
 }
 
@@ -168,7 +145,6 @@
 
 .hero.light h1 {
   color: var(--text-color);
-  text-shadow: none;
 }
 
 .hero.light p {
