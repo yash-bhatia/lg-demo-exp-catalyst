@@ -23,6 +23,25 @@
           "instances": [".grey-section", ".bg-grey"]
         }
       ]
+    },
+    {
+      "name": "lg-tech-hub-article",
+      "urls": ["https://www.lg.com/fr/lg-experience/tech-hub/meilleures-enceintes-portables-pour-soiree"],
+      "description": "LG Tech Hub blog article template with hero image, article body sections, product comparison table, product spotlight columns, FAQ section, featured products and related articles card grids",
+      "blocks": [
+        {
+          "name": "table",
+          "instances": ["table.rounded-corners"]
+        },
+        {
+          "name": "columns",
+          "instances": ["div.imagesliderandtext"]
+        },
+        {
+          "name": "cards",
+          "instances": ["div.lg-article-related div.more-articles-container div.lg-tile-container"]
+        }
+      ]
     }
   ]
 }
