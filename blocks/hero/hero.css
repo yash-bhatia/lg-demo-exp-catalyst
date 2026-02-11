@@ -162,3 +162,95 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+/* ============================================
+   Hero Experience variant - Beige Background with Centered Logo
+   Apply by adding section-metadata with style: experience
+   ============================================ */
+
+.hero-container.experience .hero-wrapper {
+  background-color: #EAE6DF;
+}
+
+.hero-container.experience .hero {
+  background-color: #EAE6DF;
+  min-height: auto;
+  padding: 60px 24px 0;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-container.experience .hero::before {
+  display: none;
+}
+
+/* Logo styling - display inline, not as background */
+.hero-container.experience .hero picture {
+  position: static;
+  z-index: auto;
+  inset: auto;
+  display: block;
+  width: auto;
+  height: auto;
+  margin-bottom: 32px;
+}
+
+.hero-container.experience .hero img {
+  width: auto;
+  height: auto;
+  max-width: 280px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+/* Breadcrumb styling */
+.hero-container.experience .hero p {
+  color: #666;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+  max-width: none;
+}
+
+/* Heading styling */
+.hero-container.experience .hero h1 {
+  color: #000;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+  max-width: 600px;
+  margin: 0;
+  text-align: left;
+  text-transform: none;
+}
+
+@media (width >= 600px) {
+  .hero-container.experience .hero h1 {
+    font-size: 28px;
+    max-width: 650px;
+  }
+
+  .hero-container.experience .hero img {
+    max-width: 300px;
+  }
+}
+
+@media (width >= 900px) {
+  .hero-container.experience .hero img {
+    max-width: 320px;
+  }
+
+  .hero-container.experience .hero h1 {
+    font-size: 32px;
+    max-width: 700px;
+  }
+}
+
+@media (width >= 1200px) {
+  .hero-container.experience .hero h1 {
+    font-size: 36px;
+  }
+}
+

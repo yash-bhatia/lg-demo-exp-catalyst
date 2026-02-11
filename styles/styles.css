@@ -17,7 +17,7 @@
 
 :root {
   /* Colors - LG Mobility */
-  --background-color: #fff;
+  --background-color: #e8e4dc;
   --light-color: #f8f8f8;
   --dark-color: #333;
   --text-color: #000;
@@ -217,7 +217,7 @@ button {
 
 /* Links */
 a:any-link {
-  color: var(--link-color);
+  color: black;
   text-decoration: none;
   overflow-wrap: break-word;
   transition: color var(--transition-fast);
@@ -398,4 +398,567 @@ main ol {
 main li {
   margin-bottom: 4px;
   line-height: var(--body-line-height);
+}
+
+/* ============================================
+   LG Experience Page Styles
+   Applied to pages under /lg-experience/
+   ============================================ */
+
+/* Only apply beige background to main content, not header/footer */
+body.experience-page main {
+  background-color: #EAE6DF;
+}
+
+/* All sections get beige background - exclude hero-article and image-container */
+body.experience-page main > .section:not(.hero-article-container):not(.image-container-container):not(.hero-grid) {
+  background-color: #EAE6DF;
+  margin: 0;
+  padding: 20px 0;
+}
+
+body.experience-page main > .section:first-of-type {
+  padding-top: 0;
+}
+
+/* Center all content - exclude hero-article and image-container */
+body.experience-page main > .section:not(.hero-article-container):not(.image-container-container):not(.hero-grid) > div {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Hero-article sections - preserve original layout */
+body.experience-page main > .section.hero-article-container,
+body.experience-page main > .section.image-container-container,
+body.experience-page main > .section.hero-grid {
+  background-color: #EAE6DF;
+  margin: 0;
+  padding: 20px 0;
+}
+
+/* Wrapper styles for hero-article-container and image-container-container (but NOT hero-grid) */
+body.experience-page main > .section.hero-article-container:not(.hero-grid) > div,
+body.experience-page main > .section.image-container-container:not(.hero-grid) > div {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* 
+ * Hero-grid, hero-article, and image-container sections
+ * These sections use their own block-level CSS - do NOT override their styles
+ * Only set the background color to match the experience page theme
+ */
+
+/* Center text content - only in default-content-wrapper, not in other blocks */
+body.experience-page main .section:not(.hero-article-container):not(.image-container-container):not(.hero-grid) .default-content-wrapper {
+  text-align: center;
+}
+
+body.experience-page main .section:not(.hero-article-container):not(.image-container-container):not(.hero-grid) .default-content-wrapper h2 {
+  text-align: center;
+}
+
+/* Keep h3 left-aligned */
+body.experience-page main .section:not(.hero-article-container):not(.image-container-container):not(.hero-grid) .default-content-wrapper h3 {
+  text-align: left;
+}
+
+body.experience-page main .section:not(.hero-article-container):not(.image-container-container):not(.hero-grid) .default-content-wrapper p {
+  text-align: left;
+}
+
+/* Center h2 headings - only in main, exclude hero-article */
+body.experience-page main .section:not(.hero-article-container):not(.image-container-container):not(.hero-grid) h2 {
+  text-align: center;
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+}
+
+/* Keep h3 left-aligned */
+body.experience-page main .section:not(.hero-article-container):not(.image-container-container):not(.hero-grid) h3 {
+  text-align: left;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+/* Third section - black links */
+body.experience-page main > div:nth-child(3) a:any-link {
+  color: #000;
+}
+
+body.experience-page main > div:nth-child(3) a:hover {
+  color: #333;
+}
+
+/* Center images - only in main, exclude hero-article and image-container */
+body.experience-page main .section:not(.hero-article-container):not(.image-container-container):not(.hero-grid) .default-content-wrapper picture {
+  display: block;
+  text-align: center;
+  margin: 24px auto;
+}
+
+body.experience-page main .section:not(.hero-article-container):not(.image-container-container):not(.hero-grid) .default-content-wrapper img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* List styling - left aligned but centered container - only in main, exclude hero-article */
+body.experience-page main .section:not(.hero-article-container):not(.image-container-container):not(.hero-grid) .default-content-wrapper ul {
+  text-align: left;
+  display: inline-block;
+  margin: 16px auto 24px;
+  padding-left: 1.5em;
+}
+
+body.experience-page main .section:not(.hero-article-container):not(.image-container-container):not(.hero-grid) .default-content-wrapper li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+/* Table section - limit width to show only 4 columns */
+body.experience-page main > .section.table-container > div {
+  max-width: 920px;
+}
+
+/* Experience page table - 4 columns visible with horizontal scroll */
+body.experience-page .table-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+body.experience-page .table.block {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f0f0f0;
+}
+
+body.experience-page .table.block::-webkit-scrollbar {
+  height: 8px;
+}
+
+body.experience-page .table.block::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+body.experience-page .table.block::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+body.experience-page .table.block table {
+  width: max-content;
+  min-width: 100%;
+  table-layout: fixed;
+}
+
+/* Hide the first column (Fonctionnalité) */
+body.experience-page .table.block table thead th:first-child,
+body.experience-page .table.block table tbody td:first-child {
+  display: none;
+}
+
+/* Make each column fixed width - 4 columns visible at a time */
+body.experience-page .table.block table thead th,
+body.experience-page .table.block table tbody td {
+  width: 220px;
+  min-width: 220px;
+  max-width: 220px;
+  padding: 16px 14px;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+
+/* Header styling - BLACK background */
+body.experience-page .table.block table thead tr {
+  background-color: #000 !important;
+}
+
+body.experience-page .table.block table thead th {
+  color: #fff !important;
+  font-weight: 600;
+  font-size: 14px;
+  background-color: #000 !important;
+  border: none;
+}
+
+body.experience-page .table.block table thead th p {
+  color: #fff !important;
+  margin: 0;
+}
+
+body.experience-page .table.block table thead th a {
+  color: #fff !important;
+  text-decoration: underline;
+}
+
+/* Body row styling */
+body.experience-page .table.block table tbody tr {
+  background-color: #fff;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+body.experience-page .table.block table tbody td {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Remove striped styling for experience tables */
+body.experience-page .table.block.striped tbody tr:nth-child(odd),
+body.experience-page .table.block.striped tbody tr:nth-child(even) {
+  background-color: #fff;
+}
+
+/* Scroll hint gradient on the right */
+body.experience-page .table-wrapper::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 8px;
+  width: 50px;
+  background: linear-gradient(to right, transparent, rgba(234, 230, 223, 0.95));
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Cards section - wider width */
+body.experience-page main > .section.cards-container > div {
+  max-width: 1100px;
+}
+
+body.experience-page main > .section.cards-container h3 {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* ============================================
+   Produit vedette Cards - White card style
+   First cards-container on experience pages
+   ============================================ */
+
+body.experience-page .section.cards-container:has(#produit-vedette) > div {
+  max-width: 1200px;
+}
+
+body.experience-page .section.cards-container:has(#produit-vedette) .cards ul {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 280px));
+  justify-content: center;
+  gap: 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+body.experience-page .section.cards-container:has(#produit-vedette) .cards li {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Position 4th card (LG GRAB) below 2nd card (LG BOUNCE) */
+body.experience-page .section.cards-container:has(#produit-vedette) .cards li:nth-child(4) {
+  grid-column: 2;
+}
+
+body.experience-page .section.cards-container:has(#produit-vedette) .cards .cards-card-image {
+  padding: 30px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+body.experience-page .section.cards-container:has(#produit-vedette) .cards .cards-card-image img {
+  max-width: 100%;
+  max-height: 180px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+body.experience-page .section.cards-container:has(#produit-vedette) .cards li:hover .cards-card-image img {
+  transform: scale(1.1);
+}
+
+body.experience-page .section.cards-container:has(#produit-vedette) .cards .cards-card-body {
+  padding: 20px 20px 32px;
+  text-align: center;
+}
+
+body.experience-page .section.cards-container:has(#produit-vedette) .cards .cards-card-body p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #333;
+}
+
+body.experience-page .section.cards-container:has(#produit-vedette) .cards .cards-card-body strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 6px;
+}
+
+body.experience-page .section.cards-container:has(#produit-vedette) .cards .cards-card-body a {
+  color: #000;
+  text-decoration: none;
+}
+
+body.experience-page .section.cards-container:has(#produit-vedette) .cards .cards-card-body a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive - 2 columns on tablet */
+@media (max-width: 900px) {
+  body.experience-page .section.cards-container:has(#produit-vedette) .cards ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Responsive - 1 column on mobile */
+@media (max-width: 600px) {
+  body.experience-page .section.cards-container:has(#produit-vedette) .cards ul {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  body.experience-page .section.cards-container:has(#produit-vedette) .cards .cards-card-image {
+    min-height: 140px;
+    padding: 16px;
+  }
+
+  body.experience-page .section.cards-container:has(#produit-vedette) .cards .cards-card-image img {
+    max-height: 120px;
+  }
+}
+
+/* ============================================
+   Article connexe Cards - Article card style
+   ============================================ */
+
+body.experience-page .section.cards-container:has(#article-connexe) > div {
+  max-width: 1100px;
+}
+
+body.experience-page .section.cards-container:has(#article-connexe) .cards ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+body.experience-page .section.cards-container:has(#article-connexe) .cards li {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Image styling - rounded corners */
+body.experience-page .section.cards-container:has(#article-connexe) .cards .cards-card-image {
+  overflow: hidden;
+  cursor: pointer;
+}
+
+body.experience-page .section.cards-container:has(#article-connexe) .cards .cards-card-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+body.experience-page .section.cards-container:has(#article-connexe) .cards li:hover .cards-card-image img {
+  transform: scale(1.1);
+}
+
+/* Card body styling */
+body.experience-page .section.cards-container:has(#article-connexe) .cards .cards-card-body {
+  text-align: left;
+  padding: 16px 20px 24px;
+}
+
+/* Category tag - outlined pill style */
+body.experience-page .section.cards-container:has(#article-connexe) .cards .cards-card-body .button-container {
+  margin: 0 0 12px;
+}
+
+body.experience-page .section.cards-container:has(#article-connexe) .cards .cards-card-body .button-container a.button,
+body.experience-page .section.cards-container:has(#article-connexe) .cards .cards-card-body p:first-child a {
+  display: inline-block;
+  background-color: transparent !important;
+  border: 1.5px solid #000066 !important;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none !important;
+  margin: 0 0 12px;
+}
+
+
+/* Title styling - bold and dark blue link */
+body.experience-page .section.cards-container:has(#article-connexe) .cards .cards-card-body p {
+  margin: 0 0 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
+
+body.experience-page .section.cards-container:has(#article-connexe) .cards .cards-card-body p strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+body.experience-page .section.cards-container:has(#article-connexe) .cards .cards-card-body p strong a {
+  color: #000;
+  text-decoration: none;
+}
+
+body.experience-page .section.cards-container:has(#article-connexe) .cards .cards-card-body p strong a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive - 2 columns on tablet */
+@media (max-width: 900px) {
+  body.experience-page .section.cards-container:has(#article-connexe) .cards ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+/* Responsive - 1 column on mobile */
+@media (max-width: 600px) {
+  body.experience-page .section.cards-container:has(#article-connexe) .cards ul {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* Columns section - wider width */
+body.experience-page main > .section.columns-container > div {
+  max-width: 900px;
+}
+
+/* Columns block styling for experience page */
+body.experience-page .columns-wrapper {
+  margin-bottom: 40px;
+}
+
+body.experience-page .columns > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+@media (width >= 600px) {
+  body.experience-page .columns > div {
+    flex-direction: row;
+    align-items: center;
+    gap: 32px;
+  }
+
+  body.experience-page .columns > div > div {
+    flex: 1;
+  }
+
+  body.experience-page .columns > div > .columns-img-col {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+/* Text content styling */
+body.experience-page .columns > div > div:not(.columns-img-col) {
+  text-align: left;
+}
+
+body.experience-page .columns > div > div strong {
+  font-size: 18px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 12px;
+  color: #000;
+}
+
+body.experience-page .columns > div > div p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+/* Links in columns - black underlined */
+body.experience-page .columns > div > div p a {
+  color: #000;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+body.experience-page .columns > div > div p a:hover {
+  color: var(--link-color);
+}
+
+/* Acheter maintenant button - red rounded style */
+
+body.experience-page .columns > div > div p:last-child a:only-child,
+body.experience-page .columns > div > div a.button {
+  display: inline-block;
+  background-color: #FE4A47;
+  margin-top: 40px !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: none;
+  transition: background-color 0.2s ease;
+}
+
+body.experience-page .columns > div > div p:last-child a:only-child:hover,
+body.experience-page .columns > div > div a.button:hover {
+  background-color: #e5403d;
+  text-decoration: none !important;
+}
+
+@media (width >= 600px) {
+  body.experience-page main > .section:not(.hero-grid) > div {
+    padding: 0 32px;
+  }
+}
+
+@media (width >= 900px) {
+  body.experience-page main > .section:not(.hero-grid) > div {
+    padding: 0 40px;
+  }
+
+  body.experience-page main > .section:not(.hero-grid) {
+    padding: 20px 0;
+  }
 }

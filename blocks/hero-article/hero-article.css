@@ -113,11 +113,18 @@
   display: flex;
   flex-direction: row;
   align-items: stretch;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
+  height: 100%;
+  width: 100%;
+  flex: 1;
 }
 
 .section.hero-grid .hero-article > div:first-child {
-  flex: 0 0 45%;
-  max-width: 45%;
+  flex: 0 0 40%;
+  max-width: 40%;
   display: flex;
   overflow: hidden;
 }
@@ -138,33 +145,78 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  border-radius: 0;
 }
 
 .section.hero-grid .hero-article > div:last-child {
   flex: 1;
-  padding: 18px 22px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.section.hero-grid .hero-article > div:last-child > div {
+  width: 100%;
 }
 
 .section.hero-grid .hero-article h2 {
   font-size: 14px;
-  margin-bottom: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #000;
+  margin: 0 0 12px;
 }
 
 .section.hero-grid .hero-article > div:last-child p:first-child {
-  font-size: 9px;
+  display: inline-block;
+  width: fit-content;
+  font-size: 8px;
+  font-weight: 700;
+  color: #000066;
+  background-color: transparent;
+  border: 1.5px solid #000066;
   padding: 4px 10px;
-  margin-bottom: 12px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+  letter-spacing: 0.3px;
+}
+
+.section.hero-grid .hero-article .button-container {
+  margin: 0;
 }
 
 .section.hero-grid .hero-article .button-container a.button {
+  display: inline-block;
   font-size: 11px;
-  padding: 9px 20px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #a50034;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 0;
+  text-decoration: none;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.section.hero-grid .hero-article .button-container a.button:hover {
+  background-color: #8a002c;
 }
 
 /* Desktop adjustments */
 @media (width >= 900px) {
   .section.hero-grid .hero-article {
-    min-height: 220px;
+    min-height: auto;
+  }
+
+  .section.hero-grid .hero-article > div:last-child {
+    padding: 18px 22px;
+  }
+
+  .section.hero-grid .hero-article h2 {
+    font-size: 15px;
   }
 }
 
@@ -180,14 +232,14 @@
   }
 
   .section.hero-grid .hero-article > div:last-child p:first-child {
-    font-size: 8px;
+    font-size: 7px;
     padding: 3px 8px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   .section.hero-grid .hero-article .button-container a.button {
     font-size: 10px;
-    padding: 7px 16px;
+    padding: 7px 14px;
   }
 }
 
@@ -214,25 +266,37 @@
   /* Keep hero-grid articles horizontal on mobile */
   .section.hero-grid .hero-article {
     flex-direction: row;
-    min-height: 140px;
+    min-height: 100px;
   }
 
   .section.hero-grid .hero-article > div:first-child {
-    flex: 0 0 40%;
-    max-width: 40%;
+    flex: 0 0 35%;
+    max-width: 35%;
   }
 
   .section.hero-grid .hero-article img {
-    border-radius: 12px 0 0 12px;
+    border-radius: 0;
     object-fit: cover;
   }
 
   .section.hero-grid .hero-article > div:last-child {
-    padding: 14px 16px;
+    padding: 10px 12px;
   }
 
   .section.hero-grid .hero-article h2 {
-    font-size: 13px;
+    font-size: 11px;
+    margin-bottom: 8px;
+  }
+
+  .section.hero-grid .hero-article > div:last-child p:first-child {
+    font-size: 6px;
+    padding: 2px 6px;
+    margin-bottom: 6px;
+  }
+
+  .section.hero-grid .hero-article .button-container a.button {
+    font-size: 9px;
+    padding: 6px 12px;
   }
 }
 

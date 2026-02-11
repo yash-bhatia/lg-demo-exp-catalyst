@@ -28,6 +28,12 @@ function buildHeroBlock(main) {
     }
     const section = document.createElement('div');
     section.append(buildBlock('hero', { elems: [picture, h1] }));
+
+    // Add 'experience' class for LG Experience pages (beige background hero style)
+    if (window.location.pathname.includes('/lg-experience/')) {
+      section.classList.add('experience');
+    }
+
     main.prepend(section);
   }
 }
@@ -96,6 +102,11 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
+
+  // Add 'experience-page' class to body for LG Experience pages
+  if (window.location.pathname.includes('/lg-experience/')) {
+    document.body.classList.add('experience-page');
+  }
   const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);
