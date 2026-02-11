@@ -31,6 +31,22 @@
   height: 100%;
 }
 
+/* LG Experience branding logo - override hero background treatment */
+.hero picture:has(img[alt="LG Experience"]) {
+  position: relative;
+  z-index: 2;
+  inset: auto;
+}
+
+.hero img[alt="LG Experience"] {
+  width: auto;
+  max-width: 258px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 16px;
+}
+
 /* Dark overlay for better text contrast */
 .hero::before {
   content: '';
