@@ -31,6 +31,21 @@
   height: 100%;
 }
 
+/* Background video layer */
+.hero .hero-video {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hide static image when video background is present */
+.hero:has(.hero-video) picture {
+  display: none;
+}
+
 /* Dark overlay for text contrast */
 .hero::before {
   content: '';

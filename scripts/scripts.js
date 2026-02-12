@@ -26,8 +26,20 @@ function buildHeroBlock(main) {
     if (h1.closest('.hero') || picture.closest('.hero')) {
       return; // Don't create a duplicate hero block
     }
+
+    // Collect hero elements: picture, h1, and any .mp4 video links in the same section
+    const elems = [picture, h1];
+    const firstSection = h1.closest('div');
+    if (firstSection) {
+      const videoLink = firstSection.querySelector('a[href$=".mp4"]');
+      if (videoLink) {
+        const videoP = videoLink.closest('p') || videoLink;
+        elems.push(videoP);
+      }
+    }
+
     const section = document.createElement('div');
-    section.append(buildBlock('hero', { elems: [picture, h1] }));
+    section.append(buildBlock('hero', { elems }));
 
     // Add 'experience' class for LG Experience pages (beige background hero style)
     if (window.location.pathname.includes('/lg-experience/')) {
