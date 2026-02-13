@@ -269,3 +269,137 @@
   }
 }
 
+/* ============================================
+   CES 2026 Event Page Hero Styles
+   ============================================ */
+
+body.ces2026-page .hero-container {
+  background: transparent;
+}
+
+body.ces2026-page .hero-container .hero-wrapper {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+body.ces2026-page .hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  min-height: auto;
+  background: transparent;
+  overflow: visible;
+}
+
+/* Remove dark overlay */
+body.ces2026-page .hero::before {
+  display: none;
+}
+
+/* Video container */
+body.ces2026-page .hero .hero-video-container {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Video styling */
+body.ces2026-page .hero .hero-video {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+/* Play/Pause button */
+body.ces2026-page .hero .hero-video-play-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 2px solid #fff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.ces2026-page .hero .hero-video-play-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: translateX(-50%) scale(1.1);
+}
+
+body.ces2026-page .hero .hero-video-play-btn .pause-icon,
+body.ces2026-page .hero .hero-video-play-btn .play-icon {
+  line-height: 1;
+}
+
+/* Image/video container - contained with rounded corners */
+body.ces2026-page .hero > div:not(.hero-video-container) {
+  position: relative;
+  width: 100%;
+}
+
+body.ces2026-page .hero picture {
+  position: relative;
+  z-index: auto;
+  inset: auto;
+  display: block;
+  width: 100%;
+}
+
+body.ces2026-page .hero img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* Title below the video/image */
+body.ces2026-page .hero h1 {
+  position: relative;
+  color: #000;
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+  margin: 28px 0 0;
+  padding: 0 20px;
+  text-shadow: none;
+  max-width: 100%;
+  line-height: 1.3;
+}
+
+@media (width >= 600px) {
+  body.ces2026-page .hero h1 {
+    font-size: 30px;
+  }
+}
+
+@media (width >= 900px) {
+  body.ces2026-page .hero h1 {
+    font-size: 34px;
+    margin: 36px 0 0;
+  }
+
+  body.ces2026-page .hero .hero-video-play-btn {
+    width: 15px;
+    height: 30px;
+    font-size: 18px;
+    bottom: 1px;
+  }
+}
+
