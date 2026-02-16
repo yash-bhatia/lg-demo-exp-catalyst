@@ -1249,18 +1249,18 @@ body.ces2026-page main > .section a:not(.button):hover {
    Overlay first two <p> elements on the video
    ============================================ */
 
-/* First div contains the video - make it positioning context */
-body > main > div:nth-child(1) {
+/* First div contains the video - make it positioning context (CES pages only) */
+body:not(.experience-page) > main > div:nth-child(1) {
   position: relative !important;
 }
 
-/* Second div - keep in normal flow */
-body > main > div:nth-child(2) {
+/* Second div - keep in normal flow (CES pages only) */
+body:not(.experience-page) > main > div:nth-child(2) {
   position: relative !important;
 }
 
-/* First <p> element - use transform to position over the video */
-body > main > div:nth-child(2) > div > p:nth-of-type(1) {
+/* First <p> element - use transform to position over the video (CES pages only) */
+body:not(.experience-page) > main > div:nth-child(2) > div > p:nth-of-type(1) {
   position: relative !important;
   transform: translateY(-350px) !important;
   z-index: 5 !important;
@@ -1273,8 +1273,8 @@ body > main > div:nth-child(2) > div > p:nth-of-type(1) {
   pointer-events: auto !important;
 }
 
-/* Second <p> element - use transform to position over the video */
-body > main > div:nth-child(2) > div > p:nth-of-type(2) {
+/* Second <p> element - use transform to position over the video (CES pages only) */
+body:not(.experience-page) > main > div:nth-child(2) > div > p:nth-of-type(2) {
   position: relative !important;
   transform: translateY(-350px) !important;
   z-index: 5 !important;
@@ -1286,8 +1286,8 @@ body > main > div:nth-child(2) > div > p:nth-of-type(2) {
   pointer-events: auto !important;
 }
 
-/* Third <p> element and onwards - keep in normal position */
-body > main > div:nth-child(2) > div > p:nth-of-type(n+3) {
+/* Third <p> element and onwards - keep in normal position (CES pages only) */
+body:not(.experience-page) > main > div:nth-child(2) > div > p:nth-of-type(n+3) {
   position: relative !important;
   color: inherit !important;
   text-shadow: none !important;
