@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 160">
+  <defs>
+    <linearGradient id="lavage-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fef3e2"/>
+      <stop offset="100%" style="stop-color:#fde8d0"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="160" fill="url(#lavage-bg)"/>
+  <!-- Washing machine -->
+  <rect x="180" y="30" width="80" height="100" rx="6" fill="#e8e8e8" stroke="#ccc" stroke-width="2"/>
+  <circle cx="220" cy="85" r="30" fill="#fff" stroke="#ddd" stroke-width="2"/>
+  <circle cx="220" cy="85" r="22" fill="#b8d4e8"/>
+  <rect x="185" y="38" width="35" height="12" rx="2" fill="#ddd"/>
+  <circle cx="250" cy="44" r="4" fill="#a50034"/>
+  <!-- Plant decoration -->
+  <rect x="270" y="60" width="8" height="40" fill="#8b7355"/>
+  <ellipse cx="274" cy="50" rx="15" ry="20" fill="#7cb342"/>
+</svg>

@@ -114,17 +114,17 @@
   flex-direction: row;
   align-items: stretch;
   background-color: #fff;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   height: 100%;
   width: 100%;
   flex: 1;
 }
 
 .section.hero-grid .hero-article > div:first-child {
-  flex: 0 0 40%;
-  max-width: 40%;
+  flex: 0 0 45%;
+  max-width: 45%;
   display: flex;
   overflow: hidden;
 }
@@ -150,7 +150,7 @@
 
 .section.hero-grid .hero-article > div:last-child {
   flex: 1;
-  padding: 16px 20px;
+  padding: 20px 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -161,26 +161,26 @@
 }
 
 .section.hero-grid .hero-article h2 {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
   line-height: 1.4;
   color: #000;
-  margin: 0 0 12px;
+  margin: 0 0 14px;
 }
 
 .section.hero-grid .hero-article > div:last-child p:first-child {
   display: inline-block;
   width: fit-content;
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 700;
   color: #000066;
   background-color: transparent;
   border: 1.5px solid #000066;
-  padding: 4px 10px;
-  border-radius: 3px;
+  padding: 5px 12px;
+  border-radius: 4px;
   text-transform: uppercase;
-  margin: 0 0 10px;
-  letter-spacing: 0.3px;
+  margin: 0 0 12px;
+  letter-spacing: 0.4px;
 }
 
 .section.hero-grid .hero-article .button-container {
@@ -189,12 +189,12 @@
 
 .section.hero-grid .hero-article .button-container a.button {
   display: inline-block;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   color: #fff;
   background-color: #a50034;
   border: none;
-  padding: 8px 18px;
+  padding: 10px 20px;
   border-radius: 0;
   text-decoration: none;
   margin: 0;
@@ -212,34 +212,56 @@
   }
 
   .section.hero-grid .hero-article > div:last-child {
-    padding: 18px 22px;
+    padding: 22px 26px;
   }
 
   .section.hero-grid .hero-article h2 {
-    font-size: 15px;
+    font-size: 16px;
+  }
+}
+
+@media (width >= 1200px) {
+  .section.hero-grid .hero-article > div:last-child {
+    padding: 24px 28px;
+  }
+
+  .section.hero-grid .hero-article h2 {
+    font-size: 17px;
+    margin-bottom: 16px;
+  }
+
+  .section.hero-grid .hero-article > div:last-child p:first-child {
+    font-size: 10px;
+    padding: 6px 14px;
+    margin-bottom: 14px;
+  }
+
+  .section.hero-grid .hero-article .button-container a.button {
+    font-size: 13px;
+    padding: 11px 24px;
   }
 }
 
 /* Tablet responsive */
-@media (max-width: 1100px) and (min-width: 900px) {
+@media (max-width: 1199px) and (min-width: 900px) {
   .section.hero-grid .hero-article > div:last-child {
-    padding: 14px 18px;
+    padding: 18px 20px;
   }
 
   .section.hero-grid .hero-article h2 {
-    font-size: 13px;
-    margin-bottom: 10px;
+    font-size: 14px;
+    margin-bottom: 12px;
   }
 
   .section.hero-grid .hero-article > div:last-child p:first-child {
-    font-size: 7px;
-    padding: 3px 8px;
-    margin-bottom: 8px;
+    font-size: 8px;
+    padding: 4px 10px;
+    margin-bottom: 10px;
   }
 
   .section.hero-grid .hero-article .button-container a.button {
-    font-size: 10px;
-    padding: 7px 14px;
+    font-size: 11px;
+    padding: 9px 18px;
   }
 }
 

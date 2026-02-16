@@ -3,12 +3,12 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  max-width: 780px;
-  margin: 0 auto 20px;
-  border-radius: 12px;
+  max-width: 900px;
+  margin: 0 auto 24px;
+  border-radius: 16px;
   overflow: hidden;
   background-color: #6b6b6b;
-  min-height: 300px;
+  min-height: 360px;
 }
 
 /* Image layer - absolute positioned to fill container */
@@ -23,6 +23,19 @@
 }
 
 .image-container > div:first-child > div {
+  width: 100%;
+  height: 100%;
+}
+
+.image-container > div:first-child > div > p {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.image-container > div:first-child > div > p > a {
+  display: block;
+  width: 100%;
   height: 100%;
 }
 
@@ -59,21 +72,21 @@
   font-weight: 600;
   color: rgb(0, 0, 102);
   background-color: #fff;
-  padding: 6px 14px;
+  padding: 7px 16px;
   border-radius: 4px;
   text-transform: uppercase;
-  margin: 0 0 14px;
+  margin: 0 0 16px;
   letter-spacing: 0.5px;
 }
 
 /* Title styling - white text on dark overlay */
 .image-container h2 {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 700;
   line-height: 1.3;
   color: #fff;
   margin: 0;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
 .image-container h2 a {
@@ -100,39 +113,44 @@
    Hero Grid Section Layout
    ============================================ */
 
-/* Grid layout for the section - image on left, articles stacked on right */
+/* Grid layout for the section - larger image on left, articles stacked on right */
 .section.hero-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.4fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 16px;
-  max-width: 1100px;
+  gap: 20px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 24px;
-  min-height: 400px;
+  padding: 0 32px;
+  height: 480px;
 }
 
 /* Image container spans both rows */
 .section.hero-grid .image-container-wrapper {
-  grid-row: span 2;
-  display: flex;
+  grid-row: 1 / 3;
+  grid-column: 1;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
 }
 
 /* Hero article wrappers fill their grid cells */
 .section.hero-grid .hero-article-wrapper {
-  display: flex;
-  min-height: 0;
+  height: 100%;
 }
 
 /* Hero Grid Section - when inside .hero-grid */
 .section.hero-grid .image-container {
+  position: relative;
+  display: block;
   max-width: 100%;
   width: 100%;
   margin: 0;
   height: 100%;
-  min-height: 100%;
-  border-radius: 12px;
-  flex: 1;
+  min-height: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #6b6b6b;
 }
 
 .section.hero-grid .image-container > div:first-child {
@@ -143,28 +161,81 @@
   bottom: 0;
   width: 100%;
   height: 100%;
+  z-index: 0;
+}
+
+.section.hero-grid .image-container > div:first-child > div {
+  width: 100%;
+  height: 100%;
+}
+
+.section.hero-grid .image-container > div:first-child > div > p {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.section.hero-grid .image-container > div:first-child > div > p > a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.section.hero-grid .image-container > div:first-child picture {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .section.hero-grid .image-container > div:first-child img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
 
+/* Text overlay for image container in grid */
+.section.hero-grid .image-container > div:last-child {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 100px 28px 28px;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.6));
+  z-index: 1;
+}
+
 @media (width >= 900px) {
   .section.hero-grid {
-    padding: 0 32px;
-    gap: 16px;
-    min-height: 420px;
+    padding: 0 48px;
+    gap: 20px;
+    height: 420px;
   }
 
-  .image-container h2 {
+  .section.hero-grid .image-container h2 {
     font-size: 24px;
   }
 
-  .image-container > div:last-child {
-    padding: 100px 28px 28px;
+  .section.hero-grid .image-container > div:last-child {
+    padding: 80px 28px 24px;
+  }
+}
+
+@media (width >= 1200px) {
+  .section.hero-grid {
+    grid-template-columns: 1.5fr 1fr;
+    gap: 24px;
+    height: 460px;
+    padding: 0 60px;
+  }
+
+  .section.hero-grid .image-container h2 {
+    font-size: 26px;
+  }
+
+  .section.hero-grid .image-container > div:last-child {
+    padding: 100px 32px 28px;
   }
 }
 

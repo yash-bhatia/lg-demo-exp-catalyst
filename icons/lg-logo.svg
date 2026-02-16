@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 42" width="100" height="42">
+  <!-- LG Face Circle -->
+  <circle cx="21" cy="21" r="19" fill="none" stroke="#A50034" stroke-width="3"/>
+  <!-- L shape (nose) -->
+  <path d="M21 9 L21 25 L31 25" fill="none" stroke="#A50034" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Dot (eye) -->
+  <circle cx="28" cy="15" r="3" fill="#A50034"/>
+  <!-- LG Text -->
+  <text x="46" y="30" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="900" fill="#A50034">LG</text>
+</svg>

@@ -17,6 +17,13 @@
   text-align: center;
   margin: 0 0 40px;
 }
+body > main > div.section.cards-product-container > div.cards-product-wrapper > div > div.cards-product-tabs :hover{
+  color: black !important;
+}
+body > main > div.section.cards-product-container > div.cards-product-wrapper > div > div.cards-product-tabs > button:focus{
+  outline: none !important;
+  outline-offset: none !important;
+}
 
 /* Tab Navigation */
 .cards-product-tabs {
