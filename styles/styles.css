@@ -224,7 +224,6 @@ a:any-link {
 }
 
 a:hover {
-  color: var(--link-hover-color);
   text-decoration: underline;
 }
 
@@ -384,10 +383,10 @@ main p {
 }
 
 /* Secondary body text / descriptions */
-main .section p + p,
+/* main .section p + p,
 main .section .body-copy {
   color: var(--text-color-secondary);
-}
+} */
 
 /* Lists */
 main ul,
@@ -455,18 +454,61 @@ body.experience-page main > .section.image-container-container:not(.hero-grid) >
 body.experience-page main .section:not(.hero-article-container):not(.image-container-container):not(.hero-grid) .default-content-wrapper {
   text-align: center;
 }
-
+#quelle-est-lenceinte-portable-bluetooth-parfaite-pour-ma-fête- > strong{
+  font-weight: 400 !important;
+}
+#les-enceintes-de-fête-portables-lg-xboom-bluetooth--conçues-pour-durer > strong , #mettez-lambiance-pendant-vos-soirées-avec-xboom-by-william > strong{
+  font-weight: 400 !important;
+}
+#faqs{
+  text-align: center !important;
+  font-weight: 400 !important;
+}
+#produit-vedette , #article-connexe{
+  text-align: center !important;
+  font-weight: 700 !important;
+  font-size: 28px !important;
+}
 body.experience-page main .section:not(.hero-article-container):not(.image-container-container):not(.hero-grid) .default-content-wrapper h2 {
   text-align: center;
+  font-weight: unset !important;
 }
 
 /* Keep h3 left-aligned */
 body.experience-page main .section:not(.hero-article-container):not(.image-container-container):not(.hero-grid) .default-content-wrapper h3 {
   text-align: left;
+  font-weight: 500 !important;
+}
+#quest-ce-quun-lave-linge-à-hublot- , #lave-linge-à-hublot-compacts-vs-lave-linge-à-hublot-de-taille-standard , #comprendre-les-idées-reçues-sur-les-lave-linge-compacts , #innovations-technologiques-dans-les-lave-linge-de-faible-profondeur , #un-éventail-de-programmes-de-lavage , #les-meilleurs-lave-linge-à-hublot-compacts-de-lg{
+  text-align: left !important;
+  margin-bottom: 0px !important;
+  font-size: 33px !important;
+  font-weight: 600 !important;
+}
+#la-croyance-commune , #progrès-technologiques-au-niveau-du-moteur , #techniques-doptimisation-de-la-charge , #des-programmes-sur-mesure-adaptés-à-différents-types-de-tissus , #polyvalence-en-matière-de-charge , #linnovation-lg-en-matière-de-lave-linge-compacts{
+  font-weight: 400 !important;
+  margin-top: 15px !important;
+}
+#le-lave-linge-f84b13whs-de-8-kg-de-lg , #le-lave-linge-f92sr50whs-de-9-kg-de-lg{
+  text-align: left !important;
+  font-weight: 500 !important;
+}
+body > main > div.section.table-container > div:nth-child(3) > p:nth-child(34) > strong{
+  font-weight: unset !important;
+}
+body > main > div.section.table-container > div:nth-child(3) > p:nth-child(35){
+  margin-top: 80px !important;
+  font-weight: 400 !important;
+  font-size: 22px !important;
+}
+body > main > div.section.table-container > div:nth-child(3) > ul:nth-child(36){
+  display: flow !important;
+  font-weight: 300 !important;
 }
 
 body.experience-page main .section:not(.hero-article-container):not(.image-container-container):not(.hero-grid) .default-content-wrapper p {
   text-align: left;
+  font-size: 17px !important;
 }
 
 /* Center h2 headings - only in main, exclude hero-article */
@@ -509,12 +551,12 @@ body.experience-page main .section:not(.hero-article-container):not(.image-conta
 body.experience-page main .section:not(.hero-article-container):not(.image-container-container):not(.hero-grid) .default-content-wrapper ul {
   text-align: left;
   display: inline-block;
-  margin: 16px auto 24px;
-  padding-left: 1.5em;
+  font-size: 17px !important;
+  /* margin: 16px auto 24px;
+  padding-left: 1.5em; */
 }
 
 body.experience-page main .section:not(.hero-article-container):not(.image-container-container):not(.hero-grid) .default-content-wrapper li {
-  margin-bottom: 8px;
   line-height: 1.6;
 }
 
@@ -595,6 +637,7 @@ body.experience-page .table.block table thead th p {
 body.experience-page .table.block table thead th a {
   color: #fff !important;
   text-decoration: underline;
+  font-weight: 300;
 }
 
 /* Body row styling */
@@ -804,14 +847,15 @@ body.experience-page .section.cards-container:has(#article-connexe) .cards .card
 body.experience-page .section.cards-container:has(#article-connexe) .cards .cards-card-body .button-container a.button,
 body.experience-page .section.cards-container:has(#article-connexe) .cards .cards-card-body p:first-child a {
   display: inline-block;
+  color: #006 !important;
   background-color: transparent !important;
-  border: 1.5px solid #000066 !important;
+  border: 1px solid #000066 !important;
   padding: 6px 14px;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
   text-decoration: none !important;
   margin: 0 0 12px;
 }
@@ -820,14 +864,14 @@ body.experience-page .section.cards-container:has(#article-connexe) .cards .card
 /* Title styling - bold and dark blue link */
 body.experience-page .section.cards-container:has(#article-connexe) .cards .cards-card-body p {
   margin: 0 0 8px;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.5;
   color: #333;
 }
 
 body.experience-page .section.cards-container:has(#article-connexe) .cards .cards-card-body p strong {
   display: block;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 700;
   color: #000;
   margin-bottom: 8px;
@@ -899,15 +943,15 @@ body.experience-page .columns > div > div:not(.columns-img-col) {
 }
 
 body.experience-page .columns > div > div strong {
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 26px;
+  font-weight: 600;
   display: block;
   margin-bottom: 12px;
   color: #000;
 }
 
 body.experience-page .columns > div > div p {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
   color: #333;
   margin-bottom: 16px;
@@ -935,8 +979,9 @@ body.experience-page .columns > div > div a.button {
   text-decoration: none !important;
   padding: 12px 24px;
   border-radius: 25px;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
   text-transform: none;
   transition: background-color 0.2s ease;
 }
@@ -1308,7 +1353,7 @@ body > main > div.section.hero-container > div > div > div:nth-child(2) h1 {
   color: #000 !important;
 }
 
-/* Third <p> element - truncated with ellipsis style */
+/* Third <p> element - truncated with ellipsis style
 body > main > div:nth-child(2) > div > p:nth-child(3) {
   display: -webkit-box !important;
   -webkit-line-clamp: 4 !important;
@@ -1322,7 +1367,7 @@ body > main > div:nth-child(2) > div > p:nth-child(3) {
   max-width: 800px !important;
   margin: 0 auto !important;
   padding: 0 20px !important;
-}
+} */
 
 @media (width >= 768px) {
   body > main > div.section.hero-container > div > div > div:nth-child(2) h1 {
