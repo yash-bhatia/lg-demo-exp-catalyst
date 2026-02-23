@@ -184,6 +184,52 @@ function addAnnouncementsEyebrow() {
 }
 
 /**
+ * Creates the "WATCH THE FULL VIDEO" button and moves description below hero heading
+ */
+function createWatchVideoButton() {
+  setTimeout(() => {
+    const video = document.querySelector('video');
+    if (!video) return;
+
+    const videoSrc = video.src || video.querySelector('source')?.src;
+    if (!videoSrc) return;
+
+    const section2 = document.querySelector('main > .section:nth-child(2)');
+    if (!section2) return;
+
+    const contentWrapper = section2.querySelector('.default-content-wrapper');
+    if (!contentWrapper) return;
+
+    if (contentWrapper.querySelector('.button-container')) return;
+
+    const paragraphs = contentWrapper.querySelectorAll('p');
+    const descriptionParagraph = paragraphs[2];
+
+    if (descriptionParagraph) {
+      const rideInTuneHeading = document.querySelector('#ride-in-tune-the-lg-mobility-invehicle-experience');
+      if (rideInTuneHeading) {
+        const descClone = descriptionParagraph.cloneNode(true);
+        descClone.className = 'hero-description';
+        rideInTuneHeading.parentNode.insertBefore(descClone, rideInTuneHeading.nextSibling);
+        descriptionParagraph.style.display = 'none';
+      }
+    }
+
+    const buttonContainer = document.createElement('p');
+    buttonContainer.className = 'button-container';
+
+    const button = document.createElement('a');
+    button.href = videoSrc;
+    button.className = 'button';
+    button.target = '_blank';
+    button.textContent = 'Watch Video';
+
+    buttonContainer.appendChild(button);
+    contentWrapper.appendChild(buttonContainer);
+  }, 500);
+}
+
+/**
  * Creates the Related Contents carousel
  */
 function createRelatedContentsCarousel() {
@@ -440,16 +486,45 @@ function createCESTabNavigation() {
       sections[1].after(tabNav);
     }
 
-    // Update active tab on scroll
+    // Get header wrapper and tab nav initial position
+    const headerWrapper = document.querySelector('header .nav-wrapper');
+    const tabNavInitialTop = tabNav.offsetTop;
+    
+    // Add transition to header for smooth animation
+    if (headerWrapper) {
+      headerWrapper.style.transition = 'transform 0.3s ease';
+    }
+
+    // Update active tab and handle header/tab nav visibility on scroll
     window.addEventListener('scroll', () => {
-      const scrollPos = window.pageYOffset + 120;
+      const scrollPos = window.pageYOffset;
+      
+      // Handle header hiding and tab nav becoming fixed
+      if (scrollPos >= tabNavInitialTop - 56) {
+        if (headerWrapper) headerWrapper.style.transform = 'translateY(-100%)';
+        tabNav.style.position = 'fixed';
+        tabNav.style.top = '0';
+        tabNav.style.left = '0';
+        tabNav.style.right = '0';
+        tabNav.style.width = '100%';
+        tabNav.style.marginLeft = '0';
+      } else {
+        if (headerWrapper) headerWrapper.style.transform = 'translateY(0)';
+        tabNav.style.position = 'sticky';
+        tabNav.style.top = '0';
+        tabNav.style.width = '100vw';
+        tabNav.style.marginLeft = 'calc(-50vw + 50%)';
+      }
+
+      // Update active tab
+      const activeScrollPos = scrollPos + 120;
       tabs.forEach((tab) => {
         const section = document.querySelector(tab.target);
         if (section) {
           const sectionTop = section.offsetTop;
           const sectionBottom = sectionTop + section.offsetHeight;
           const tabLink = document.querySelector(`.ces-tab[href="${tab.target}"]`);
-          if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+          if (activeScrollPos >= sectionTop && activeScrollPos < sectionBottom) {
             document.querySelectorAll('.ces-tab').forEach((t) => t.classList.remove('active'));
             if (tabLink) tabLink.classList.add('active');
           }
@@ -573,6 +648,7 @@ async function loadEager(doc) {
     createEventInfoAccordion();
     createRelatedContentsCarousel();
     addAnnouncementsEyebrow();
+    createWatchVideoButton();
   }
 
   // Add 'ces2026-page' class for CES 2026 event page
@@ -582,6 +658,7 @@ async function loadEager(doc) {
     createEventInfoAccordion();
     createRelatedContentsCarousel();
     addAnnouncementsEyebrow();
+    createWatchVideoButton();
   }
   const main = doc.querySelector('main');
   if (main) {

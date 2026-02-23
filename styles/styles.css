@@ -270,11 +270,11 @@ button:focus {
   cursor: pointer;
 }
 
-a.button:focus,
+/* a.button:focus,
 button:focus {
   outline: 2px solid var(--link-color);
   outline-offset: 2px;
-}
+} */
 
 button:disabled,
 button:disabled:hover {
@@ -1017,18 +1017,88 @@ body.experience-page .columns > div > div a.button:hover {
 
 body.ces2025-page,
 body.ces2026-page {
-  background-color: #f5f0eb;
+  background-color: #fff;
 }
 
 body.ces2025-page main,
 body.ces2026-page main {
-  background-color: #f5f0eb;
+  background-color: #fff;
+  position: relative;
+}
+
+/* Header white background for CES pages */
+body.ces2025-page header .nav-wrapper,
+body.ces2026-page header .nav-wrapper {
+  background-color: #fff;
+}
+
+body.ces2025-page header nav[aria-expanded="true"],
+body.ces2026-page header nav[aria-expanded="true"] {
+  background-color: #fff;
+}
+
+body.ces2025-page header nav .mega-menu,
+body.ces2026-page header nav .mega-menu,
+body.ces2025-page header nav .nav-item[aria-expanded='true'] .mega-menu,
+body.ces2026-page header nav .nav-item[aria-expanded='true'] .mega-menu {
+  background-color: #fff !important;
+}
+
+body.ces2025-page header nav .nav-sections,
+body.ces2026-page header nav .nav-sections {
+  background-color: #fff;
+}
+
+/* Replace logo with LG Vehicle Solutions logo for CES pages */
+body.ces2025-page header nav .nav-brand a > *,
+body.ces2026-page header nav .nav-brand a > * {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+body.ces2025-page header nav .nav-brand a,
+body.ces2026-page header nav .nav-brand a {
+  display: block !important;
+  width: 120px;
+  height: 80px;
+  background-image: url('https://www.lg.com/lg5-common-gp/images/common/header/logo-vs.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center left;
+}
+
+@media (width < 900px) {
+  body.ces2025-page header nav .nav-brand a,
+  body.ces2026-page header nav .nav-brand a {
+    width: 100px;
+    height: 32px;
+  }
+}
+
+/* Footer white background for CES pages */
+body.ces2025-page footer.footer-wrapper,
+body.ces2026-page footer.footer-wrapper {
+  background-color: #fff;
+}
+
+body.ces2025-page footer .footer > div > .section,
+body.ces2026-page footer .footer > div > .section {
+  background-color: #fff;
+}
+
+/* CES Tab Navigation white background */
+body.ces2025-page .ces-tab-navigation,
+body.ces2026-page .ces-tab-navigation {
+  background-color: #fff;
+}
+body.ces2025-page .ces-tab-navigation{
+  margin-top: 100px !important;
 }
 
 /* Center all content on the page */
 body.ces2025-page main > .section,
 body.ces2026-page main > .section {
-  max-width: 900px;
+  max-width: 1170px;
   margin: 0 auto;
   padding: 40px 24px;
   text-align: center;
@@ -1044,7 +1114,7 @@ body.ces2026-page main > .section > div {
 body.ces2025-page .hero-container,
 body.ces2026-page .hero-container {
   padding: 40px 24px 0;
-  max-width: 900px;
+  max-width: 1170px;
   text-align: center;
 }
 
@@ -1054,51 +1124,144 @@ body.ces2026-page .hero-wrapper {
   margin: 0 auto;
 }
 
-/* Second section - video button and description */
+/* Hero container needs relative positioning for overlay */
+body.ces2025-page .hero-container,
+body.ces2026-page .hero-container {
+  position: relative;
+}
+
+/* Second section - video overlay content positioned on hero */
 body.ces2025-page main > .section:nth-child(2),
 body.ces2026-page main > .section:nth-child(2) {
-  padding-top: 0;
+  position: absolute !important;
+  top: 56px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1170px;
+  height: calc(100vh - 56px);
+  max-height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 5;
+  pointer-events: none;
+  padding: 0 24px 80px !important;
+  background: transparent !important;
+  box-sizing: border-box;
+}
+
+body.ces2025-page main > .section:nth-child(2) .default-content-wrapper,
+body.ces2026-page main > .section:nth-child(2) .default-content-wrapper {
+  text-align: center;
+  padding: 0 24px;
+  max-width: 800px;
 }
 
 body.ces2025-page main > .section:nth-child(2) .button-container,
 body.ces2026-page main > .section:nth-child(2) .button-container {
-  display: none;
+  display: block !important;
+  margin-top: 12px;
+  pointer-events: auto;
+}
+
+body.ces2025-page main > .section:nth-child(2) .button-container a.button,
+body.ces2026-page main > .section:nth-child(2) .button-container a.button {
+  background: transparent !important;
+  border: none !important;
+  color: transparent !important;
+  font-size: 0;
+  padding: 8px 0;
+  text-decoration: none;
+  position: relative;
+  display: inline-block !important;
+}
+
+body.ces2025-page main > .section:nth-child(2) .button-container a.button::before,
+body.ces2026-page main > .section:nth-child(2) .button-container a.button::before {
+  content: 'WATCH THE FULL VIDEO >';
+  color: #fff !important;
+  font-size: 13px !important;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+}
+
+body.ces2025-page main > .section:nth-child(2) .button-container a.button:hover::before,
+body.ces2026-page main > .section:nth-child(2) .button-container a.button:hover::before {
+  text-decoration: underline;
 }
 
 body.ces2025-page main > .section:nth-child(2) p,
 body.ces2026-page main > .section:nth-child(2) p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #fff;
+  text-align: center;
+  margin: 0 auto 4px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+body.ces2025-page main > .section:nth-child(2) p strong,
+body.ces2026-page main > .section:nth-child(2) p strong {
+  font-size: 25px;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 1px;
+}
+
+/* Description paragraph in overlay - hidden as it moves to hero section */
+body.ces2025-page main > .section:nth-child(2) .default-content-wrapper > p:nth-child(3),
+body.ces2026-page main > .section:nth-child(2) .default-content-wrapper > p:nth-child(3) {
+  display: none;
+}
+
+/* Hero description - below Ride in Tune heading */
+body.ces2025-page .hero-description,
+body.ces2026-page .hero-description {
   font-size: 16px;
-  line-height: 1.7;
+  line-height: 1.6;
   color: #333;
   text-align: center;
-  margin: 0 auto 16px;
-  padding-left: 98px;
+  max-width: 800px;
+  margin: 16px auto 32px;
+  padding: 0 24px;
 }
 
 /* Section headings */
+#press-conference{
+  font-size: 17px !important;
+  font-weight: 400 !important;
+}
 body.ces2025-page main > .section h2,
 body.ces2026-page main > .section h2 {
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 35px !important;
+  font-weight: 550;
   color: #000;
   text-align: center;
-  margin: 0 0 16px;
 }
 
 body.ces2025-page main > .section h3,
 body.ces2026-page main > .section h3 {
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 35px;
+  font-weight: 550;
   color: #333;
   text-align: center;
-  margin: 0 0 24px;
+  margin: 0 0 10px;
 }
 
 /* Paragraphs */
 body.ces2025-page main > .section p,
 body.ces2026-page main > .section p {
-  text-align: center;
+  text-align: left;
   margin: 0 auto 16px;
+  width: 100%;
+}
+body > main > div:nth-child(10) > div > p:nth-child(3){
+  width: 521px !important;
+  font-size: 14px !important;
 }
 
 /* Lists */
@@ -1130,11 +1293,13 @@ body.ces2026-page main > .section img {
   height: auto;
   border-radius: 12px;
 }
-
+body > main > div:nth-child(11) > div.columns-wrapper > div > div > div:nth-child(1) > p > a > picture > img , body > main > div:nth-child(11) > div.columns-wrapper > div > div > div:nth-child(2) > p > a > picture > img{
+  height: 268px !important;
+}
 /* Columns container - wider */
 body.ces2025-page .columns-container,
 body.ces2026-page .columns-container {
-  max-width: 1000px;
+  max-width: 1300px;
 }
 
 body.ces2025-page .columns,
@@ -1147,15 +1312,15 @@ body.ces2025-page .columns > div,
 body.ces2026-page .columns > div {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 32px;
   justify-content: center;
 }
 
 body.ces2025-page .columns > div > div,
 body.ces2026-page .columns > div > div {
   flex: 1;
-  min-width: 280px;
-  max-width: 450px;
+  min-width: 364px;
+  max-width: 585px;
   text-align: center;
 }
 
@@ -1168,10 +1333,11 @@ body.ces2026-page .columns img {
 body.ces2025-page .columns strong,
 body.ces2026-page .columns strong {
   display: block;
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 600;
   color: #000;
-  margin: 12px 0 8px;
+  margin: 16px 0 10px;
+  text-align: left;
 }
 
 body.ces2025-page .columns p,
@@ -1179,12 +1345,18 @@ body.ces2026-page .columns p {
   font-size: 14px;
   line-height: 1.6;
   text-align: center;
+  font-weight: 300;
 }
 
 /* Cards container - wider */
 body.ces2025-page .cards-container,
 body.ces2026-page .cards-container {
-  max-width: 1100px;
+  max-width: 1430px;
+}
+body > main > div:nth-child(11) > div.columns-wrapper > div > div > div:nth-child(1) > p > strong , body > main > div:nth-child(11) > div.columns-wrapper > div > div > div:nth-child(2) > p > strong{
+  position: relative;
+  top: -280px;
+  left: 10px;
 }
 
 body.ces2025-page .cards ul,
@@ -1277,7 +1449,7 @@ body.ces2026-page main > .section a:not(.button):hover {
 
   body.ces2025-page main > .section h2,
   body.ces2026-page main > .section h2 {
-    font-size: 32px;
+    font-size: 42px;
   }
 
   body.ces2025-page .cards ul,
@@ -1307,7 +1479,7 @@ body:not(.experience-page) > main > div:nth-child(2) {
 /* First <p> element - use transform to position over the video (CES pages only) */
 body:not(.experience-page) > main > div:nth-child(2) > div > p:nth-of-type(1) {
   position: relative !important;
-  transform: translateY(-350px) !important;
+  transform: translateY(-60px) !important;
   z-index: 5 !important;
   color: #fff !important;
   font-size: 24px !important;
@@ -1321,19 +1493,29 @@ body:not(.experience-page) > main > div:nth-child(2) > div > p:nth-of-type(1) {
 /* Second <p> element - use transform to position over the video (CES pages only) */
 body:not(.experience-page) > main > div:nth-child(2) > div > p:nth-of-type(2) {
   position: relative !important;
-  transform: translateY(-350px) !important;
+  transform: translateY(-60px) !important;
   z-index: 5 !important;
   color: #fff !important;
-  font-size: 13px !important;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8) !important;
+  font-size: 14px !important;
   text-align: center !important;
   margin: 0 0 -80px !important;
   pointer-events: auto !important;
 }
-
+body.ces2025-page:not(.experience-page) > main > div:nth-child(2) > div > p:nth-of-type(2) {
+  position: relative !important;
+  transform: translateY(190px) !important;
+  z-index: 1500 !important;
+  color: black !important;
+  font-size: 14px !important;
+  font-weight: 300 !important;
+  text-align: center !important;
+  text-shadow: none !important;
+  width: 500px !important;
+}
 /* Third <p> element and onwards - keep in normal position (CES pages only) */
 body:not(.experience-page) > main > div:nth-child(2) > div > p:nth-of-type(n+3) {
   position: relative !important;
+  margin-bottom: 35px !important;
   color: inherit !important;
   text-shadow: none !important;
   transform: none !important;
@@ -1420,28 +1602,31 @@ body > main > div:nth-child(2) > div > p:nth-child(3) {
    ================================================ */
 .ces-tab-navigation {
   position: sticky;
-  top: 56px; /* Below the header */
-  z-index: 90;
-  background-color: #f5f0eb;
+  top: 0;
+  z-index: 100;
+  background-color: #fff;
   border-bottom: 1px solid #e0e0e0;
-  width: 100%;
+  width: 100vw;
+  margin-top:0px !important;
+  margin-left: calc(-50vw + 50%);
+  box-sizing: border-box;
 }
 
 .ces-tab-navigation-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 24px;
   height: 50px;
   box-sizing: border-box;
-  max-width: 900px;
+  max-width: 1170px;
   margin: 0 auto;
+  padding: 0 24px;
 }
 
 .ces-tabs {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 200px;
   height: 100%;
 }
 
@@ -1483,7 +1668,7 @@ body > main > div:nth-child(2) > div > p:nth-child(3) {
   justify-content: center;
   padding: 10px 24px;
   background-color: #a50034;
-  color: #fff;
+  color: #fff !important;
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
@@ -1565,6 +1750,7 @@ body > main > div:nth-child(2) > div > p:nth-child(3) {
 .event-accordion-header {
   display: flex;
   justify-content: space-between;
+  background-color: #f5f5f5 !important;
   align-items: center;
   padding: 20px 24px;
   cursor: pointer;
@@ -1617,7 +1803,6 @@ body > main > div:nth-child(2) > div > p:nth-child(3) {
   padding-bottom: 8px;
   border-bottom: 2px solid #a50034;
   margin-bottom: 12px;
-  display: inline-block;
 }
 
 .event-time-location {
@@ -1668,23 +1853,23 @@ body > main > div:nth-child(2) > div > p:nth-child(3) {
 
 /* Highlights eyebrow text */
 .section.columns-container:has(#highlights) .default-content-wrapper #highlights {
-  font-size: 14px;
+  font-size: 14px !important;
   font-weight: 400;
-  color: #666;
+  color: black;
   text-align: center;
-  margin: 0 0 16px;
+  margin: 0 0 10px;
   letter-spacing: 0.5px;
 }
 
 /* Main heading - the h3 after highlights */
 .section.columns-container:has(#highlights) .default-content-wrapper h3 {
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 600;
   color: #000;
   text-align: center;
   line-height: 1.3;
   margin: 0 auto 48px;
-  max-width: 800px;
+  max-width: 600px;
 }
 
 /* Columns layout in highlights */
@@ -1735,8 +1920,8 @@ body > main > div:nth-child(2) > div > p:nth-child(3) {
 
 .section.columns-container:has(#highlights) .columns > div > div:not(.columns-img-col) strong {
   display: block;
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 32px;
+  font-weight: 550;
   color: #000;
   margin-bottom: 16px;
   line-height: 1.3;
@@ -1753,7 +1938,9 @@ body > main > div:nth-child(2) > div > p:nth-child(3) {
   display: inline-block;
   margin-top: 24px;
   padding: 14px 28px;
+  padding-top: 9px;
   background-color: #a50034;
+  height: 15px;
   color: #fff !important;
   font-size: 14px;
   font-weight: 600;
@@ -1812,18 +1999,18 @@ body > main > div:nth-child(2) > div > p:nth-child(3) {
 
 /* Exhibition eyebrow text */
 .section:has(#exhibition) #exhibition {
-  font-size: 14px;
+  font-size: 14px !important;
   font-weight: 400;
-  color: #666;
+  color: black;
   text-align: center;
-  margin: 0 0 16px;
+  margin: 0 0 1px;
   letter-spacing: 0.5px;
 }
 
 /* Main heading - Discover our showcase */
 .section:has(#exhibition) h3 {
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 550;
   color: #000;
   text-align: center;
   line-height: 1.3;
@@ -1846,6 +2033,22 @@ body > main > div:nth-child(2) > div > p:nth-child(3) {
   margin: 0 auto;
   padding: 0;
   max-width: 1200px;
+  position: relative;
+}
+
+.section:has(#exhibition) .default-content-wrapper > p:has(picture)::before {
+  content: 'Driving better future mobility';
+  position: absolute;
+  top: 49px;
+  left: 32%;
+  transform: translateX(-50%);
+  font-size: 42px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  z-index: 10;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
 }
 
 .section:has(#exhibition) .default-content-wrapper > p:has(picture) picture {
@@ -1903,18 +2106,18 @@ body > main > div:nth-child(2) > div > p:nth-child(3) {
 
 /* Public Showcase eyebrow text */
 .section.columns-container:has(#public-showcase) #public-showcase {
-  font-size: 14px;
+  font-size: 14px !important;
   font-weight: 400;
-  color: #666;
+  color: black;
   text-align: center;
-  margin: 0 0 16px;
+  margin: 0 0 1px;
   letter-spacing: 0.5px;
 }
 
 /* Main heading - Ride in Tune */
 .section.columns-container:has(#public-showcase) .default-content-wrapper h3 {
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 550;
   color: #000;
   text-align: center;
   line-height: 1.3;
@@ -1971,15 +2174,16 @@ body > main > div:nth-child(2) > div > p:nth-child(3) {
 
 .section.columns-container:has(#public-showcase) .columns > div > div:not(.columns-img-col) strong {
   display: block;
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 26px;
+  font-weight: 500;
   color: #000;
   margin-bottom: 16px;
   line-height: 1.3;
 }
 
 .section.columns-container:has(#public-showcase) .columns > div > div:not(.columns-img-col) p {
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: 500;
   color: #666;
   line-height: 1.6;
 }
@@ -1988,11 +2192,11 @@ body > main > div:nth-child(2) > div > p:nth-child(3) {
 .section.columns-container:has(#public-showcase) .columns > div > div:not(.columns-img-col) a {
   display: inline-block;
   margin-top: 24px;
-  padding: 14px 28px;
+  padding: 8px 20px;
   background-color: #a50034;
   color: #fff !important;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 800;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -2036,7 +2240,7 @@ body > main > div:nth-child(2) > div > p:nth-child(3) {
 
 .section.cards-container:has(#related-contents) {
   background-color: #fff;
-  padding: 60px 24px;
+  padding: 33px 24px;
 }
 
 .section.cards-container:has(#related-contents) .default-content-wrapper {
@@ -2048,7 +2252,7 @@ body > main > div:nth-child(2) > div > p:nth-child(3) {
 /* Related Contents heading */
 .section.cards-container:has(#related-contents) #related-contents {
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 600;
   color: #000;
   text-align: center;
   margin: 0 0 8px;
@@ -2063,20 +2267,28 @@ body > main > div:nth-child(2) > div > p:nth-child(3) {
 /* Subheading */
 .section.cards-container:has(#related-contents) .default-content-wrapper h3 {
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 600;
   color: #000;
   text-align: center;
   line-height: 1.3;
   margin: 0 auto 16px;
+  margin-bottom: 0 !important;
 }
 
+body > main > div:nth-child(9) > div.cards-wrapper > div.related-contents-featured > div.featured-image-container > div.featured-title-overlay{
+  display: none !important;
+}
 /* Description */
 .section.cards-container:has(#related-contents) .default-content-wrapper p {
   font-size: 14px;
-  color: #666;
+  color: black;
   line-height: 1.6;
   max-width: 700px;
-  margin: 0 auto 40px;
+  margin: 0 auto 10px;
+  margin-top: 30px;
+}
+body > main > div:nth-child(9) > div.default-content-wrapper > p:nth-child(2){
+  margin-left: 400px !important;
 }
 
 /* Cards wrapper */
@@ -2316,13 +2528,17 @@ body > main > div:nth-child(2) > div > p:nth-child(3) {
 
 .section:has(#announcements-powered-by-lg-ai-at-ces-2026) {
   background-color: #fff;
-  padding: 60px 24px;
+  padding: 15px 24px;
 }
 
 .section:has(#announcements-powered-by-lg-ai-at-ces-2026) .default-content-wrapper {
   max-width: 900px;
   margin: 0 auto;
   text-align: center;
+}
+#connect-with-lg-vs-company-updates--inquiries{
+  width: 600px !important;
+  margin-left: 240px !important;
 }
 
 /* Press Releases eyebrow - added via JS */
@@ -2338,7 +2554,7 @@ body > main > div:nth-child(2) > div > p:nth-child(3) {
 /* Main heading */
 .section:has(#announcements-powered-by-lg-ai-at-ces-2026) #announcements-powered-by-lg-ai-at-ces-2026 {
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 550;
   color: #000;
   text-align: center;
   line-height: 1.3;
@@ -2351,7 +2567,7 @@ body > main > div:nth-child(2) > div > p:nth-child(3) {
   color: #666;
   line-height: 1.6;
   max-width: 700px;
-  margin: 0 auto 40px;
+  margin: 0 auto 15px;
   text-align: center;
 }
 
@@ -2359,12 +2575,13 @@ body > main > div:nth-child(2) > div > p:nth-child(3) {
 .section:has(#announcements-powered-by-lg-ai-at-ces-2026) .default-content-wrapper ul {
   list-style: none;
   padding: 0;
-  margin: 0 auto 40px;
+  margin: 50px auto 40px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 8px 24px;
+  gap: 20px 13px;
   max-width: 900px;
+  font-weight: 600 !important;
 }
 
 .section:has(#announcements-powered-by-lg-ai-at-ces-2026) .default-content-wrapper ul li {
@@ -2453,7 +2670,7 @@ body > main > div:nth-child(2) > div > p:nth-child(3) {
   font-size: 14px;
   color: #666;
   text-align: center;
-  margin: 0 auto 48px;
+  margin: 0;
 }
 
 /* Cards wrapper */
@@ -2489,8 +2706,8 @@ body > main > div:nth-child(2) > div > p:nth-child(3) {
 /* Card image - smaller icons */
 .section.cards-container:has(#explore-lg-mobility) .cards ul li .cards-card-image {
   width: 60px;
-  height: 60px;
-  margin-bottom: 16px;
+  height: 150px;
+  margin-bottom: -6px;
 }
 
 .section.cards-container:has(#explore-lg-mobility) .cards ul li .cards-card-image picture {
@@ -2502,7 +2719,7 @@ body > main > div:nth-child(2) > div > p:nth-child(3) {
 .section.cards-container:has(#explore-lg-mobility) .cards ul li .cards-card-image img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: none;
 }
 
 /* Card body - text with arrow */
@@ -2545,6 +2762,7 @@ body > main > div:nth-child(2) > div > p:nth-child(3) {
   padding: 0;
   color: #333;
   font-weight: 400;
+  margin-left: 10px;
 }
 
 .section.cards-container:has(#explore-lg-mobility) .cards ul li .cards-card-body a.button:hover {
