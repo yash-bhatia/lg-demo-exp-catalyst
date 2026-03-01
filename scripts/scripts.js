@@ -167,7 +167,11 @@ function createEventInfoAccordion() {
  */
 function addAnnouncementsEyebrow() {
   setTimeout(() => {
-    const announcementsHeading = document.querySelector('#announcements-powered-by-lg-ai-at-ces-2026');
+    // Try CES 2026 first, then CES 2025
+    let announcementsHeading = document.querySelector('#announcements-powered-by-lg-ai-at-ces-2026');
+    if (!announcementsHeading) {
+      announcementsHeading = document.querySelector('#announcements-powered-by-lg-ai-at-ces-2025');
+    }
     if (!announcementsHeading) return;
 
     // Check if eyebrow already exists
@@ -176,10 +180,27 @@ function addAnnouncementsEyebrow() {
     // Create eyebrow element
     const eyebrow = document.createElement('p');
     eyebrow.className = 'announcements-eyebrow';
+    eyebrow.id = 'press-releases';
     eyebrow.textContent = 'Press Releases';
 
     // Insert before the heading
     announcementsHeading.parentNode.insertBefore(eyebrow, announcementsHeading);
+
+    // Add section class for styling
+    const section = announcementsHeading.closest('.section');
+    if (section) {
+      section.classList.add('press-releases-section');
+    }
+
+    // Add arrow ">" to each link
+    const links = announcementsHeading.closest('.default-content-wrapper')?.querySelectorAll('ul li a');
+    if (links) {
+      links.forEach((link) => {
+        if (!link.textContent.includes('>')) {
+          link.textContent = link.textContent + ' >';
+        }
+      });
+    }
   }, 500);
 }
 
@@ -413,6 +434,223 @@ function createRelatedContentsCarousel() {
 }
 
 /**
+ * Creates the Private Showcase carousel (similar to Related Contents)
+ */
+function createPrivateShowcaseCarousel() {
+  setTimeout(() => {
+    const privateShowcaseSection = document.querySelector('.section.cards-container:has(#private-showcase)');
+    if (!privateShowcaseSection) return;
+
+    const cardsWrapper = privateShowcaseSection.querySelector('.cards-wrapper');
+    const cardsList = privateShowcaseSection.querySelector('.cards ul');
+    if (!cardsList) return;
+
+    const cards = Array.from(cardsList.querySelectorAll('li'));
+    if (cards.length === 0) return;
+
+    // Collect card data
+    const cardsData = cards.map((card) => {
+      const img = card.querySelector('.cards-card-image img');
+      const title = card.querySelector('.cards-card-body p')?.textContent || '';
+      return {
+        imgSrc: img?.src || '',
+        imgAlt: img?.alt || '',
+        title,
+        element: card,
+      };
+    });
+
+    // Hide all original cards
+    cards.forEach((card) => {
+      card.style.display = 'none';
+    });
+
+    // Create featured display
+    const featuredDisplay = document.createElement('div');
+    featuredDisplay.className = 'private-showcase-featured';
+    featuredDisplay.innerHTML = `
+      <div class="ps-featured-image-container">
+        <img src="${cardsData[0].imgSrc}" alt="${cardsData[0].imgAlt}" class="ps-featured-image">
+        <div class="ps-featured-play-btn"></div>
+        <div class="ps-featured-title-overlay">${cardsData[0].imgAlt || cardsData[0].title}</div>
+      </div>
+      <div class="ps-featured-caption">${cardsData[0].title}</div>
+    `;
+
+    // Create carousel
+    const carousel = document.createElement('div');
+    carousel.className = 'private-showcase-carousel';
+
+    const prevBtn = document.createElement('button');
+    prevBtn.className = 'private-showcase-carousel-nav prev';
+    prevBtn.innerHTML = '‹';
+    prevBtn.setAttribute('aria-label', 'Previous');
+
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'private-showcase-carousel-nav next';
+    nextBtn.innerHTML = '›';
+    nextBtn.setAttribute('aria-label', 'Next');
+
+    const track = document.createElement('div');
+    track.className = 'private-showcase-carousel-track';
+
+    cardsData.forEach((cardData, index) => {
+      const item = document.createElement('div');
+      item.className = `private-showcase-carousel-item${index === 0 ? ' active' : ''}`;
+      item.innerHTML = `
+        <img src="${cardData.imgSrc}" alt="${cardData.imgAlt}">
+        <div class="ps-carousel-play-btn"></div>
+        <div class="ps-carousel-item-overlay">
+          <div class="ps-carousel-item-title">${cardData.title}</div>
+        </div>
+      `;
+
+      item.addEventListener('click', () => {
+        // Update featured display
+        featuredDisplay.querySelector('.ps-featured-image').src = cardData.imgSrc;
+        featuredDisplay.querySelector('.ps-featured-image').alt = cardData.imgAlt;
+        featuredDisplay.querySelector('.ps-featured-title-overlay').textContent = cardData.imgAlt || cardData.title;
+        featuredDisplay.querySelector('.ps-featured-caption').textContent = cardData.title;
+
+        // Update active state
+        track.querySelectorAll('.private-showcase-carousel-item').forEach((i) => i.classList.remove('active'));
+        item.classList.add('active');
+      });
+
+      track.appendChild(item);
+    });
+
+    carousel.appendChild(prevBtn);
+    carousel.appendChild(track);
+    carousel.appendChild(nextBtn);
+
+    // Navigation functionality
+    const scrollAmount = 200;
+    prevBtn.addEventListener('click', () => {
+      track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+    nextBtn.addEventListener('click', () => {
+      track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+
+    // Insert into DOM
+    cardsWrapper.innerHTML = '';
+    cardsWrapper.appendChild(featuredDisplay);
+    cardsWrapper.appendChild(carousel);
+  }, 700);
+}
+
+/**
+ * Creates a secondary video carousel (10th section, 3rd child) styled like private showcase
+ */
+function createSecondaryVideoCarousel() {
+  setTimeout(() => {
+    // Target the specific element: body > main > div:nth-child(10) > div:nth-child(3)
+    const targetElement = document.querySelector('body > main > div:nth-child(10) > div:nth-child(3)');
+    if (!targetElement || !targetElement.classList.contains('cards-wrapper')) return;
+
+    const cardsList = targetElement.querySelector('.cards ul');
+    if (!cardsList) return;
+
+    const cards = Array.from(cardsList.querySelectorAll('li'));
+    if (cards.length === 0) return;
+
+    // Collect card data
+    const cardsData = cards.map((card) => {
+      const img = card.querySelector('.cards-card-image img');
+      const title = card.querySelector('.cards-card-body p')?.textContent || '';
+      return {
+        imgSrc: img?.src || '',
+        imgAlt: img?.alt || '',
+        title,
+        element: card,
+      };
+    });
+
+    // Hide all original cards
+    cards.forEach((card) => {
+      card.style.display = 'none';
+    });
+
+    // Add a class to identify this section
+    targetElement.classList.add('secondary-video-carousel-wrapper');
+
+    // Create featured display
+    const featuredDisplay = document.createElement('div');
+    featuredDisplay.className = 'secondary-video-featured';
+    featuredDisplay.innerHTML = `
+      <div class="sv-featured-image-container">
+        <img src="${cardsData[0].imgSrc}" alt="${cardsData[0].imgAlt}" class="sv-featured-image">
+        <div class="sv-featured-play-btn"></div>
+        <div class="sv-featured-title-overlay">${cardsData[0].imgAlt || cardsData[0].title}</div>
+      </div>
+      <div class="sv-featured-caption">${cardsData[0].title}</div>
+    `;
+
+    // Create carousel
+    const carousel = document.createElement('div');
+    carousel.className = 'secondary-video-carousel';
+
+    const prevBtn = document.createElement('button');
+    prevBtn.className = 'secondary-video-carousel-nav prev';
+    prevBtn.innerHTML = '‹';
+    prevBtn.setAttribute('aria-label', 'Previous');
+
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'secondary-video-carousel-nav next';
+    nextBtn.innerHTML = '›';
+    nextBtn.setAttribute('aria-label', 'Next');
+
+    const track = document.createElement('div');
+    track.className = 'secondary-video-carousel-track';
+
+    cardsData.forEach((cardData, index) => {
+      const item = document.createElement('div');
+      item.className = `secondary-video-carousel-item${index === 0 ? ' active' : ''}`;
+      item.innerHTML = `
+        <img src="${cardData.imgSrc}" alt="${cardData.imgAlt}">
+        <div class="sv-carousel-play-btn"></div>
+        <div class="sv-carousel-item-overlay">
+          <div class="sv-carousel-item-title">${cardData.title}</div>
+        </div>
+      `;
+
+      item.addEventListener('click', () => {
+        // Update featured display
+        featuredDisplay.querySelector('.sv-featured-image').src = cardData.imgSrc;
+        featuredDisplay.querySelector('.sv-featured-image').alt = cardData.imgAlt;
+        featuredDisplay.querySelector('.sv-featured-title-overlay').textContent = cardData.imgAlt || cardData.title;
+        featuredDisplay.querySelector('.sv-featured-caption').textContent = cardData.title;
+
+        // Update active state
+        track.querySelectorAll('.secondary-video-carousel-item').forEach((i) => i.classList.remove('active'));
+        item.classList.add('active');
+      });
+
+      track.appendChild(item);
+    });
+
+    carousel.appendChild(prevBtn);
+    carousel.appendChild(track);
+    carousel.appendChild(nextBtn);
+
+    // Navigation functionality
+    const scrollAmount = 200;
+    prevBtn.addEventListener('click', () => {
+      track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+    nextBtn.addEventListener('click', () => {
+      track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+
+    // Insert into DOM
+    targetElement.innerHTML = '';
+    targetElement.appendChild(featuredDisplay);
+    targetElement.appendChild(carousel);
+  }, 800);
+}
+
+/**
  * Creates the CES event page tab navigation
  */
 function createCESTabNavigation() {
@@ -535,6 +773,150 @@ function createCESTabNavigation() {
 }
 
 /**
+ * Creates a highlights image gallery with main image and thumbnails (CES 2025 only)
+ */
+function createHighlightsGallery() {
+  setTimeout(() => {
+    const highlightsSection = document.querySelector('.section.columns-container:has(#highlights)');
+    if (!highlightsSection) return;
+
+    const columnsWrapper = highlightsSection.querySelector('.columns-wrapper');
+    if (!columnsWrapper) return;
+
+    // Get the columns structure: first div has images, second div has text
+    const columnsInner = columnsWrapper.querySelector('.columns > div');
+    if (!columnsInner) return;
+
+    const firstCol = columnsInner.querySelector('div:first-child');
+    const secondCol = columnsInner.querySelector('div:last-child');
+    if (!firstCol) return;
+
+    // Get all pictures from the first column
+    const pictures = firstCol.querySelectorAll('picture');
+    if (pictures.length < 2) return;
+
+    // Get caption text from second column
+    const captionText = secondCol?.textContent?.trim() || '';
+
+    // Create the gallery structure
+    const galleryContainer = document.createElement('div');
+    galleryContainer.className = 'highlights-gallery';
+
+    // Main image container (left side - large)
+    const mainImageContainer = document.createElement('div');
+    mainImageContainer.className = 'highlights-main-image';
+
+    const mainPicture = document.createElement('div');
+    mainPicture.className = 'gallery-main-picture';
+    mainPicture.appendChild(pictures[0].cloneNode(true));
+    mainImageContainer.appendChild(mainPicture);
+
+    // Caption below main image
+    const caption = document.createElement('p');
+    caption.className = 'highlights-caption';
+    caption.textContent = captionText;
+    mainImageContainer.appendChild(caption);
+
+    // Thumbnails container (right side - small)
+    const thumbnailsContainer = document.createElement('div');
+    thumbnailsContainer.className = 'highlights-thumbnails';
+
+    pictures.forEach((picture, index) => {
+      const thumb = document.createElement('div');
+      thumb.className = 'highlights-thumb' + (index === 0 ? ' active' : '');
+      thumb.appendChild(picture.cloneNode(true));
+
+      thumb.addEventListener('click', () => {
+        // Update main image
+        mainPicture.innerHTML = '';
+        mainPicture.appendChild(picture.cloneNode(true));
+
+        // Update active state
+        thumbnailsContainer.querySelectorAll('.highlights-thumb').forEach((t) => t.classList.remove('active'));
+        thumb.classList.add('active');
+      });
+
+      thumbnailsContainer.appendChild(thumb);
+    });
+
+    galleryContainer.appendChild(mainImageContainer);
+    galleryContainer.appendChild(thumbnailsContainer);
+
+    // Replace the columns content
+    const columns = columnsWrapper.querySelector('.columns');
+    if (columns) {
+      columns.innerHTML = '';
+      columns.appendChild(galleryContainer);
+    }
+  }, 600);
+}
+
+function createPublicShowcaseGallery() {
+  setTimeout(() => {
+    const showcaseSection = document.querySelector('.section.columns-container:has(#public-showcase)');
+    if (!showcaseSection) return;
+
+    const columnsWrapper = showcaseSection.querySelector('.columns-wrapper');
+    if (!columnsWrapper) return;
+
+    const columnsInner = columnsWrapper.querySelector('.columns > div');
+    if (!columnsInner) return;
+
+    const firstCol = columnsInner.querySelector('div:first-child');
+    const secondCol = columnsInner.querySelector('div:last-child');
+    if (!firstCol) return;
+
+    const pictures = firstCol.querySelectorAll('picture');
+    if (pictures.length < 2) return;
+
+    const captionText = secondCol?.textContent?.trim() || '';
+
+    const galleryContainer = document.createElement('div');
+    galleryContainer.className = 'showcase-gallery';
+
+    const mainImageContainer = document.createElement('div');
+    mainImageContainer.className = 'showcase-main-image';
+
+    const mainPicture = document.createElement('div');
+    mainPicture.className = 'gallery-main-picture';
+    mainPicture.appendChild(pictures[0].cloneNode(true));
+    mainImageContainer.appendChild(mainPicture);
+
+    const caption = document.createElement('p');
+    caption.className = 'showcase-caption';
+    caption.textContent = captionText;
+    mainImageContainer.appendChild(caption);
+
+    const thumbnailsContainer = document.createElement('div');
+    thumbnailsContainer.className = 'showcase-thumbnails';
+
+    pictures.forEach((picture, index) => {
+      const thumb = document.createElement('div');
+      thumb.className = 'showcase-thumb' + (index === 0 ? ' active' : '');
+      thumb.appendChild(picture.cloneNode(true));
+
+      thumb.addEventListener('click', () => {
+        mainPicture.innerHTML = '';
+        mainPicture.appendChild(picture.cloneNode(true));
+        thumbnailsContainer.querySelectorAll('.showcase-thumb').forEach((t) => t.classList.remove('active'));
+        thumb.classList.add('active');
+      });
+
+      thumbnailsContainer.appendChild(thumb);
+    });
+
+    galleryContainer.appendChild(mainImageContainer);
+    galleryContainer.appendChild(thumbnailsContainer);
+
+    const columns = columnsWrapper.querySelector('.columns');
+    if (columns) {
+      columns.innerHTML = '';
+      columns.appendChild(galleryContainer);
+    }
+  }, 600);
+}
+
+/**
  * Builds hero block and prepends to main in a new section.
  * @param {Element} main The container element
  */
@@ -649,6 +1031,10 @@ async function loadEager(doc) {
     createRelatedContentsCarousel();
     addAnnouncementsEyebrow();
     createWatchVideoButton();
+    createHighlightsGallery();
+    createPublicShowcaseGallery();
+    createPrivateShowcaseCarousel();
+    createSecondaryVideoCarousel();
   }
 
   // Add 'ces2026-page' class for CES 2026 event page
